@@ -4,7 +4,12 @@ local fn = vim.fn
 local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
   PACKER_BOOTSTRAP = fn.system {
-    "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path
+    "git",
+    "clone",
+    "--depth",
+    "1",
+    "https://github.com/wbthomason/packer.nvim",
+    install_path,
   }
   print "Installing packer close and reopen Neovim..."
   vim.cmd [[packadd packer.nvim]]
@@ -20,15 +25,17 @@ vim.cmd [[
 
 -- Use a protected call so we don't error out on first use
 local status_ok, packer = pcall(require, "packer")
-if not status_ok then return end
+if not status_ok then
+  return
+end
 
 -- Have packer use a popup window
 packer.init {
   display = {
     open_fn = function()
       return require("packer.util").float { border = "rounded" }
-    end
-  }
+    end,
+  },
 }
 
 -- Install your plugins here
@@ -68,9 +75,8 @@ return packer.startup(function(use)
   -- styled components
   use { "styled-components/vim-styled-components", branch = "main" }
 
-
   -- Completion
-  use "christianchiarulli/nvim-cmp"
+  use "hrsh7th/nvim-cmp"
   use "hrsh7th/cmp-buffer" -- buffer completions
   use "hrsh7th/cmp-path" -- path completions
   use "hrsh7th/cmp-cmdline" -- cmdline completions
@@ -79,31 +85,32 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-emoji"
   use "hrsh7th/cmp-nvim-lua"
   use "zbirenbaum/copilot-cmp"
-  use { "tzachar/cmp-tabnine", commit = "1a8fd2795e4317fd564da269cc64a2fa17ee854e",
-    run = "./install.sh" }
+  use { "tzachar/cmp-tabnine", commit = "1a8fd2795e4317fd564da269cc64a2fa17ee854e", run = "./install.sh" }
 
   -- Snippets
-use({"L3MON4D3/LuaSnip", tag = "v<CurrentMajor>.*"})
+  use { "L3MON4D3/LuaSnip", tag = "v<CurrentMajor>.*" }
   use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
-  -- use "hrsh7th/vim-vsnip"
-  -- use "norcalli/snippets.nvim"
-  -- use "SirVer/ultisnips"
-
-  -- import
-  use "hrsh7th/nvim-compe"
+  -- Luasnip user
+  use "saadparwaiz1/cmp_luasnip"
+  -- ultisnips users.
+  use "SirVer/ultisnips"
+  use "quangnguyen30192/cmp-nvim-ultisnips"
+  -- snippe snippy users.
+  use "dcampos/nvim-snippy"
+  use "dcampos/cmp-snippy"
 
   -- LSP
   use "onsails/lspkind-nvim"
   use "neovim/nvim-lspconfig" -- enable LSP
-  use "williamboman/mason.nvim"
-  use "williamboman/mason-lspconfig.nvim"
-  -- use "williamboman/nvim-lsp-installer" -- simple to use language server installer
+  -- use "williamboman/mason.nvim"
+  -- use "williamboman/mason-lspconfig.nvim"
+  use "williamboman/nvim-lsp-installer" -- simple to use language server installer
   use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
   use "ray-x/lsp_signature.nvim"
   use "lukas-reineke/lsp-format.nvim"
   use "lvimuser/lsp-inlayhints.nvim"
+  use "https://git.sr.ht/~whynothugo/lsp_lines.nvim"
   use "SmiteshP/nvim-navic"
-  use "simrat39/symbols-outline.nvim"
   use "b0o/SchemaStore.nvim" -- json
   use {
     "zbirenbaum/copilot.lua",
@@ -128,7 +135,7 @@ use({"L3MON4D3/LuaSnip", tag = "v<CurrentMajor>.*"})
 
   -- Treesitter
   use "nvim-treesitter/nvim-treesitter"
-  use 'nvim-treesitter/nvim-treesitter-context'
+  use "nvim-treesitter/nvim-treesitter-context"
   use "JoosepAlviste/nvim-ts-context-commentstring"
   use "p00f/nvim-ts-rainbow"
   use "nvim-treesitter/playground"
@@ -136,7 +143,6 @@ use({"L3MON4D3/LuaSnip", tag = "v<CurrentMajor>.*"})
   use "nvim-treesitter/nvim-treesitter-textobjects"
 
   -- Surrond
-  -- use "tpope/vim-surround"
   use "kylechui/nvim-surround"
 
   -- Git
@@ -151,8 +157,6 @@ use({"L3MON4D3/LuaSnip", tag = "v<CurrentMajor>.*"})
   use "theHamsta/nvim-dap-virtual-text"
   use "rcarriga/nvim-dap-ui"
   use "ravenxrz/DAPInstall.nvim"
-
-  -- use {"christianchiarulli/nvim-gps", branch = "text_hl"}
 
   -- previewing goto definition call
   use "rmagatti/goto-preview"
@@ -182,14 +186,14 @@ use({"L3MON4D3/LuaSnip", tag = "v<CurrentMajor>.*"})
   use "rmagatti/auto-session"
   use "rmagatti/session-lens"
 
-    -- Utility
+  -- Utility
   use "rcarriga/nvim-notify"
   use "stevearc/dressing.nvim"
   use "ghillb/cybu.nvim"
   use "moll/vim-bbye"
   use "lewis6991/impatient.nvim"
-  use "lalitmee/browse.nvim"
   use "andymass/vim-matchup"
+  use "karb94/neoscroll.nvim"
 
   -- Marks
   use "ThePrimeagen/harpoon"
@@ -207,8 +211,6 @@ use({"L3MON4D3/LuaSnip", tag = "v<CurrentMajor>.*"})
   -- repeat nvim
   use "tpope/vim-repeat"
 
-
-
   -- Lualine
   -- use "nvim-lualine/lualine.nvim"
   use "christianchiarulli/lualine.nvim"
@@ -222,5 +224,7 @@ use({"L3MON4D3/LuaSnip", tag = "v<CurrentMajor>.*"})
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
-  if PACKER_BOOTSTRAP then require("packer").sync() end
+  if PACKER_BOOTSTRAP then
+    require("packer").sync()
+  end
 end)

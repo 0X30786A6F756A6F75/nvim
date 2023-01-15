@@ -113,7 +113,7 @@ for _, server in pairs(servers) do
 
   if server == "rust_analyzer" then
     local rust_opts = require("user.lsp.settings.rust")
-    require("rust-tools").setup(rust_opts)
+    -- require("rust-tools").setup(rust_opts)
     goto continue
   end
 
