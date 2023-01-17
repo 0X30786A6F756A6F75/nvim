@@ -88,12 +88,9 @@ keymap("n", "Y", "y$", opts)
 -- goto-preview
 keymap("n", "gp", "<cmd>lua require('goto-preview').goto_preview_definition()<CR>", opts)
 
--- Todo
-keymap("n", "<leader>tt", ":TodoTelescope<CR>", opts)
-
 -- Shell
-keymap("n", ";", ":", opts)
-keymap("v", ";", ":", opts)
+-- keymap("n", ";", ":", opts)
+-- keymap("v", ";", ":", opts)
 
 -- Code action
 keymap("n", "<M-CR>", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)

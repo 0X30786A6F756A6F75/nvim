@@ -76,13 +76,13 @@ vim.api.nvim_create_autocmd({ "FocusLost" }, {
 
 
 -- change tabspace to 4 for java and php
-vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
-  pattern = { "*.php", "*.java", "*.yaml" },
-  callback = function()
-    vim.opt.tabstop = 4
-    vim.opt.shiftwidth = 4
-  end
-})
+-- vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
+--   pattern = { "*.php", "*.java", "*.yaml" },
+--   callback = function()
+--     vim.opt.tabstop = 4
+--     vim.opt.shiftwidth = 4
+--   end
+-- })
 
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   pattern = { "*.go" },

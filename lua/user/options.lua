@@ -2,10 +2,10 @@ local options = {
   backup = false, -- creates a backup file
   clipboard = "unnamedplus", -- allows neovim to access the system clipboard
   cmdheight = 1, -- more space in the neovim command line for displaying messages
-  completeopt = {"menuone", "noselect"}, -- mostly just for cmp
+  completeopt = { "menuone", "noselect" }, -- mostly just for cmp
   conceallevel = 0, -- so that `` is visible in markdown files
   -- colorcolumn = "80",
-  --[[ colorcolumn = "120", ]]
+  -- colorcolumn = "120",
   fileencoding = "utf-8", -- the encoding written to a file
   hlsearch = true, -- highlight all matches on previous search pattern
   ignorecase = false, -- ignore case in search patterns
@@ -31,23 +31,25 @@ local options = {
   laststatus = 3,
   showcmd = false,
   ruler = false,
-  textwidth = 122,
+  textwidth = 80,
   relativenumber = true, -- set relative numbered lines
   numberwidth = 4, -- set number column width to 2 {default 4}
   signcolumn = "yes", -- always show the sign column, otherwise it would shift the text each time
   wrap = false, -- display lines as one long line
   scrolloff = 8, -- is one of my fav
   sidescrolloff = 8,
-  guifont = "Hack Nerd Font Mono:h17",               -- the font used in graphical neovim applications
+  guifont = "Hack Nerd Font Mono:h17", -- the font used in graphical neovim applications
   autoindent = true,
   breakindent = true,
   ai = true, -- autoident
   si = true, -- smartindent
   backspace = "start,eol,indent", -- allow backspacing over everything in insert mode
-  smarttab = true -- insert indents automatically
+  smarttab = true, -- insert indents automatically
 }
 
-for key, value in pairs(options) do vim.opt[key] = value end
+for key, value in pairs(options) do
+  vim.opt[key] = value
+end
 
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]

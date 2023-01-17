@@ -57,10 +57,21 @@ return packer.startup(function(use)
   use "tamago324/lir.nvim"
   use "akinsho/bufferline.nvim"
   use "folke/trouble.nvim" -- show list diagnostics
+
+  -- Terminal
   use { "akinsho/toggleterm.nvim", tag = "v1.*" }
+
+  -- Project
   use "ahmedkhalf/project.nvim"
+  use "windwp/nvim-spectre"
+
+  -- Ident
   use "lukas-reineke/indent-blankline.nvim"
+
+  -- Startup
   use "goolord/alpha-nvim"
+
+  -- Keybinds
   use "folke/which-key.nvim"
 
   -- Colorschemes
@@ -80,7 +91,6 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-buffer" -- buffer completions
   use "hrsh7th/cmp-path" -- path completions
   use "hrsh7th/cmp-cmdline" -- cmdline completions
-  use "saadparwaiz1/cmp_luasnip" -- snippet completions
   use "hrsh7th/cmp-nvim-lsp"
   use "hrsh7th/cmp-emoji"
   use "hrsh7th/cmp-nvim-lua"
@@ -88,7 +98,7 @@ return packer.startup(function(use)
   use { "tzachar/cmp-tabnine", commit = "1a8fd2795e4317fd564da269cc64a2fa17ee854e", run = "./install.sh" }
 
   -- Snippets
-  use { "L3MON4D3/LuaSnip", tag = "v<CurrentMajor>.*" }
+  use "L3MON4D3/LuaSnip"
   use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
   -- Luasnip user
   use "saadparwaiz1/cmp_luasnip"
@@ -176,8 +186,8 @@ return packer.startup(function(use)
   use "kevinhwang91/nvim-bqf"
 
   -- motion
-  use "phaazon/hop.nvim"
-  -- use "jinh0/eyeliner.nvim"
+  -- use "phaazon/hop.nvim"
+  use "jinh0/eyeliner.nvim"
 
   use { "michaelb/sniprun", run = "bash ./install.sh" }
   use { "iamcco/markdown-preview.nvim", run = "cd app && npm install", ft = "markdown" }
