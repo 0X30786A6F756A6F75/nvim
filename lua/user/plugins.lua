@@ -2,6 +2,7 @@ local fn = vim.fn
 
 -- Automatically install packer
 local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
+---@diagnostic disable-next-line: missing-parameter
 if fn.empty(fn.glob(install_path)) > 0 then
   PACKER_BOOTSTRAP = fn.system {
     "git",
@@ -22,7 +23,6 @@ vim.cmd [[
     autocmd BufWritePost plugins.lua source <afile> | PackerSync
   augroup end
 ]]
-
 -- Use a protected call so we don't error out on first use
 local status_ok, packer = pcall(require, "packer")
 if not status_ok then
@@ -112,9 +112,9 @@ return packer.startup(function(use)
   -- LSP
   use "onsails/lspkind-nvim"
   use "neovim/nvim-lspconfig" -- enable LSP
+  use "williamboman/nvim-lsp-installer" -- simple to use language server installer
   -- use "williamboman/mason.nvim"
   -- use "williamboman/mason-lspconfig.nvim"
-  use "williamboman/nvim-lsp-installer" -- simple to use language server installer
   use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
   use "ray-x/lsp_signature.nvim"
   use "lukas-reineke/lsp-format.nvim"
@@ -186,8 +186,8 @@ return packer.startup(function(use)
   use "kevinhwang91/nvim-bqf"
 
   -- motion
-  -- use "phaazon/hop.nvim"
-  use "jinh0/eyeliner.nvim"
+  use "phaazon/hop.nvim"
+  -- use "jinh0/eyeliner.nvim"
 
   use { "michaelb/sniprun", run = "bash ./install.sh" }
   use { "iamcco/markdown-preview.nvim", run = "cd app && npm install", ft = "markdown" }

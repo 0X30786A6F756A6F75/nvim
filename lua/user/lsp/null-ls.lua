@@ -10,7 +10,6 @@ local diagnostics = null_ls.builtins.diagnostics
 
 -- https://github.com/prettier-solidity/prettier-plugin-solidity
 -- npm install --save-dev prettier prettier-plugin-solidity
-
 null_ls.setup {
   debug = false,
   sources = {
@@ -56,17 +55,17 @@ local unwrap = {
       -- sources have access to a params object
       -- containing info about the current file and editor state
       for i, line in ipairs(params.content) do
-        local col, end_col = line:find "really"
+        local col, end_col = line:find "unwrap()"
         if col and end_col then
           -- null-ls fills in undefined positions
           -- and converts source diagnostics into the required format
           table.insert(diagnostics, {
             row = i,
             col = col,
-            end_col = end_col + 1,
-            source = "no-really",
+            end_col = end_col,
+            source = "unwrap",
             message = "hey " .. os.getenv "USER" .. ", don't forget to handle this",
-            severity = vim.diagnostic.severity.WARN,
+            severity = 2,
           })
         end
       end
