@@ -3,9 +3,9 @@ local options = {
   clipboard = "unnamedplus", -- allows neovim to access the system clipboard
   cmdheight = 1, -- more space in the neovim command line for displaying messages
   completeopt = { "menuone", "noselect" }, -- mostly just for cmp
-  conceallevel = 0, -- so that `` is visible in markdown files
+  conceallevel = 1, -- so that `` is visible in markdown files
   -- colorcolumn = "80",
-  -- colorcolumn = "120",
+  colorcolumn = "120",
   fileencoding = "utf-8", -- the encoding written to a file
   hlsearch = true, -- highlight all matches on previous search pattern
   ignorecase = false, -- ignore case in search patterns
@@ -31,7 +31,7 @@ local options = {
   laststatus = 3,
   showcmd = false,
   ruler = false,
-  textwidth = 80,
+  textwidth = 120,
   relativenumber = true, -- set relative numbered lines
   numberwidth = 4, -- set number column width to 2 {default 4}
   signcolumn = "yes", -- always show the sign column, otherwise it would shift the text each time
@@ -59,3 +59,9 @@ vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
 vim.opt.fillchars.eob = " "
 
 vim.opt.shortmess:append "c"
+
+vim.filetype.add {
+  extension = {
+    conf = "dosini",
+  },
+}
