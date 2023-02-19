@@ -79,18 +79,35 @@ keymap("n", "<leader>ft", ":Telescope live_grep<CR>", opts)
 keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
 
 -- new line
-keymap("n", "op", "o<ESC>k", opts)
-keymap("n", "oo", "A<CR>", opts)
-keymap("n", "oi", "O<ESC>j", opts)
+keymap("n", "op", "o<ESC>k", {noremap = false})
+keymap("n", "oo", "A<CR>", {noremap = false})
+keymap("n", "oi", "O<ESC>j", {noremap = false})
 
 keymap("n", "Y", "y$", opts)
 
 -- goto-preview
 keymap("n", "gp", "<cmd>lua require('goto-preview').goto_preview_definition()<CR>", opts)
 
--- Shell
--- keymap("n", ";", ":", opts)
--- keymap("v", ";", ":", opts)
+-- Keep Cursor
+keymap("n", "J", "mzJ`z", opts)
+keymap("n", "<C-d>", "<C-d>zz", opts)
+keymap("n", "<C-u>", "<C-u>zz", opts)
+keymap("n", "n", "nzzzv", opts)
+keymap("n", "N", "Nzzzv", opts)
 
--- Code action
-keymap("n", "<M-CR>", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
+-- replace word select 
+keymap("x", "<leader>p", "\"_dP", opts)
+
+--tmux 
+keymap("n", "<C-f>", "<cmd>!tmux neww tmux-sessionizer<CR>", opts)
+
+
+-- quickfix navigation
+keymap("n", "<C-k>", "<cmd>cnext<CR>zz", opts)
+keymap("n", "<C-j>", "<cmd>cprev<CR>zz", opts)
+keymap("n", "<leader>k", "<cmd>lnext<CR>zz", opts)
+keymap("n", "<leader>j", "<cmd>lprev<CR>zz", opts)
+
+
+-- replace 
+keymap("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], opts)

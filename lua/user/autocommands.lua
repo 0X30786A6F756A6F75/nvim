@@ -48,12 +48,12 @@ vim.api.nvim_create_autocmd({ "TextYankPost" }, {
   end
 })
 
-vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-  pattern = { "*.java" },
-  callback = function()
-    vim.lsp.codelens.refresh()
-  end
-})
+-- vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+--   pattern = { "*.java" },
+--   callback = function()
+--     vim.lsp.codelens.refresh()
+--   end
+-- })
 
 -- vim.api.nvim_create_autocmd({ "ModeChanged" }, {
 --   callback = function()
@@ -73,16 +73,6 @@ vim.api.nvim_create_autocmd({ "FocusLost" }, {
     vim.cmd "silent! w"
   end
 })
-
-
--- change tabspace to 4 for java and php
--- vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
---   pattern = { "*.php", "*.java", "*.yaml" },
---   callback = function()
---     vim.opt.tabstop = 4
---     vim.opt.shiftwidth = 4
---   end
--- })
 
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   pattern = { "*.go" },

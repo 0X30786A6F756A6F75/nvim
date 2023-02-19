@@ -48,7 +48,12 @@ return packer.startup(function(use)
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
 
   use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
-  use "numToStr/Comment.nvim"
+  use {
+    'numToStr/Comment.nvim',
+    config = function()
+      require('Comment').setup()
+    end
+  }
 
   -- Icon
   use "kyazdani42/nvim-web-devicons"
@@ -87,52 +92,46 @@ return packer.startup(function(use)
   use { "styled-components/vim-styled-components", branch = "main" }
 
   -- Completion
-  use "hrsh7th/nvim-cmp"
-  use "hrsh7th/cmp-buffer" -- buffer completions
-  use "hrsh7th/cmp-path" -- path completions
   use "hrsh7th/cmp-cmdline" -- cmdline completions
-  use "hrsh7th/cmp-nvim-lsp"
   use "hrsh7th/cmp-emoji"
-  use "hrsh7th/cmp-nvim-lua"
   use "zbirenbaum/copilot-cmp"
   use { "tzachar/cmp-tabnine", commit = "1a8fd2795e4317fd564da269cc64a2fa17ee854e", run = "./install.sh" }
 
-  -- Snippets
-  use "L3MON4D3/LuaSnip"
-  use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
-  -- Luasnip user
-  use "saadparwaiz1/cmp_luasnip"
-  -- ultisnips users.
-  use "SirVer/ultisnips"
-  use "quangnguyen30192/cmp-nvim-ultisnips"
+  -- use "SirVer/ultisnips"
+  -- use "quangnguyen30192/cmp-nvim-ultisnips"
   -- snippe snippy users.
-  use "dcampos/nvim-snippy"
-  use "dcampos/cmp-snippy"
+  -- use "dcampos/nvim-snippy"
+  -- use "dcampos/cmp-snippy"
 
   -- LSP
-  use "onsails/lspkind-nvim"
-  use "neovim/nvim-lspconfig" -- enable LSP
-  use "williamboman/nvim-lsp-installer" -- simple to use language server installer
-  -- use "williamboman/mason.nvim"
-  -- use "williamboman/mason-lspconfig.nvim"
-  use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
   use "ray-x/lsp_signature.nvim"
-  use "lukas-reineke/lsp-format.nvim"
-  use "lvimuser/lsp-inlayhints.nvim"
-  use "https://git.sr.ht/~whynothugo/lsp_lines.nvim"
+  use {
+    'VonHeikemen/lsp-zero.nvim',
+    branch = 'v1.x',
+    requires = {
+      -- LSP Support
+      { 'neovim/nvim-lspconfig' }, -- Required
+      { 'williamboman/mason.nvim' }, -- Optional
+      { 'williamboman/mason-lspconfig.nvim' }, -- Optional
+
+      -- Autocompletion
+      { 'hrsh7th/nvim-cmp' }, -- Required
+      { 'hrsh7th/cmp-nvim-lsp' }, -- Required
+      { 'hrsh7th/cmp-buffer' }, -- Optional
+      { 'hrsh7th/cmp-path' }, -- Optional
+      { 'saadparwaiz1/cmp_luasnip' }, -- Optional
+      { 'hrsh7th/cmp-nvim-lua' }, -- Optional
+
+      -- Snippets
+      { 'L3MON4D3/LuaSnip' }, -- Required
+      { 'rafamadriz/friendly-snippets' }, -- Optional
+    }
+  }
+
+  -- Snippet
   use "SmiteshP/nvim-navic"
   use "b0o/SchemaStore.nvim" -- json
-  use {
-    "zbirenbaum/copilot.lua",
-    event = { "VimEnter" },
-    config = function()
-      vim.defer_fn(function()
-        require "user.copilot"
-      end, 100)
-    end,
-  }
-  -- use { "github/copilot.vim" }
-  -- use "glepnir/lspsaga.nvim"
+  use { "michaelb/sniprun", run = "bash ./install.sh" }
 
   use "RRethy/vim-illuminate"
 
@@ -146,7 +145,6 @@ return packer.startup(function(use)
   -- Treesitter
   use "nvim-treesitter/nvim-treesitter"
   use "nvim-treesitter/nvim-treesitter-context"
-  use "JoosepAlviste/nvim-ts-context-commentstring"
   use "p00f/nvim-ts-rainbow"
   use "nvim-treesitter/playground"
   use "windwp/nvim-ts-autotag"
@@ -154,13 +152,6 @@ return packer.startup(function(use)
 
   -- Surrond
   use "kylechui/nvim-surround"
-
-  -- Git
-  -- use "lewis6991/gitsigns.nvim"
-  -- use "f-person/git-blame.nvim"
-  -- use "ruifm/gitlinker.nvim"
-  -- use "mattn/vim-gist"
-  -- use "mattn/webapi-vim"
 
   -- DAP
   use "mfussenegger/nvim-dap"
@@ -179,8 +170,8 @@ return packer.startup(function(use)
   -- multi cursor
   use "terryma/vim-multiple-cursors"
 
-  use "nacro90/numb.nvim"
-  use "monaqa/dial.nvim"
+  use "nacro90/numb.nvim" -- Visual line
+  use "monaqa/dial.nvim" -- Increment/Decrement
 
   -- Quickfix
   use "kevinhwang91/nvim-bqf"
@@ -189,7 +180,6 @@ return packer.startup(function(use)
   use "phaazon/hop.nvim"
   -- use "jinh0/eyeliner.nvim"
 
-  use { "michaelb/sniprun", run = "bash ./install.sh" }
   use { "iamcco/markdown-preview.nvim", run = "cd app && npm install", ft = "markdown" }
 
   -- Session
@@ -203,7 +193,7 @@ return packer.startup(function(use)
   use "moll/vim-bbye"
   use "lewis6991/impatient.nvim"
   use "andymass/vim-matchup"
-  use "karb94/neoscroll.nvim"
+  -- use "karb94/neoscroll.nvim"
 
   -- Marks
   use "ThePrimeagen/harpoon"
@@ -224,13 +214,6 @@ return packer.startup(function(use)
   -- Lualine
   -- use "nvim-lualine/lualine.nvim"
   use "christianchiarulli/lualine.nvim"
-
-  -- Code Runner
-  use "is0n/jaq-nvim"
-  use {
-    "0x100101/lab.nvim",
-    run = "cd js && npm ci",
-  }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
