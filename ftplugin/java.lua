@@ -1,6 +1,6 @@
 vim.opt_local.shiftwidth = 4
 vim.opt_local.tabstop = 4
-vim.opt_local.cmdheight = 2 -- more space in the neovim command line for displaying messages
+vim.opt_local.cmdheight = 1 -- more space in the neovim command line for displaying messages
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 
@@ -8,8 +8,8 @@ local status_cmp_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
 if not status_cmp_ok then
   return
 end
-capabilities.textDocument.completion.completionItem.snippetSupport = true
-capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
+capabilities.textDocument.completion.completionItem.snippetSupport = false
+capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
 
 local status, jdtls = pcall(require, "jdtls")
 if not status then
@@ -18,15 +18,15 @@ end
 
 -- Determine OS
 local home = os.getenv "HOME"
--- if vim.fn.has "mac" == 1 then
---   WORKSPACE_PATH = home .. "/workspace/"
---   CONFIG = "mac"
--- elseif vim.fn.has "unix" == 1 then
-WORKSPACE_PATH = home .. "/workspace/"
-CONFIG = "linux"
--- else
---   print "Unsupported system"
--- end
+if vim.fn.has "mac" == 1 then
+  WORKSPACE_PATH = home .. "/workspace/"
+  CONFIG = "mac"
+elseif vim.fn.has "unix" == 1 then
+  WORKSPACE_PATH = home .. "/workspace/"
+  CONFIG = "linux"
+else
+  print "Unsupported system"
+end
 
 -- Find root of project
 local root_markers = { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle" }
@@ -63,9 +63,14 @@ end
 
 -- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
 local config = {
+  -- The command that starts the language server
+  -- See: https://github.com/eclipse/eclipse.jdt.ls#running-from-the-command-line
   cmd = {
 
-    "java",
+    -- 💀
+    "java", -- or '/path/to/java11_or_newer/bin/java'
+    -- depends on if `java` is in your $PATH env variable and if it points to the right version.
+
     "-Declipse.application=org.eclipse.jdt.ls.core.id1",
     "-Dosgi.bundles.defaultStartLevel=4",
     "-Declipse.product=org.eclipse.jdt.ls.core.product",
@@ -82,8 +87,16 @@ local config = {
     -- 💀
     "-jar",
     vim.fn.glob(home .. "/.local/share/nvim/lsp_servers/jdtls/plugins/org.eclipse.equinox.launcher_*.jar"),
+    -- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^                                       ^^^^^^^^^^^^^^
+    -- Must point to the                                                     Change this to
+    -- eclipse.jdt.ls installation                                           the actual version
+
+    -- 💀
     "-configuration",
     home .. "/.local/share/nvim/lsp_servers/jdtls/config_" .. CONFIG,
+    -- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^        ^^^^^^
+    -- Must point to the                      Change to one of `linux`, `win` or `mac`
+    -- eclipse.jdt.ls installation            Depending on your system.
 
     -- 💀
     -- See `data directory configuration` section in the README
@@ -91,7 +104,7 @@ local config = {
     workspace_dir,
   },
 
-  --on_attach = require("user.lsp.handlers").on_attach,
+  on_attach = require("user.lsp.handlers").on_attach,
   capabilities = capabilities,
 
   -- 💀
@@ -105,14 +118,11 @@ local config = {
   -- for a list of options
   settings = {
     java = {
-      signatureHelp = { enabled = true },
-      import = { enabled = true },
-      rename = { enabled = true },
-      jdt = {
-        ls = {
-          vmargs = "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx1G -Xms100m"
-        }
-      },
+      -- jdt = {
+      --   ls = {
+      --     vmargs = "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx1G -Xms100m"
+      --   }
+      -- },
       eclipse = {
         downloadSources = true,
       },
@@ -137,10 +147,10 @@ local config = {
         },
       },
       format = {
-        enabled = true,
-        settings = {
-          profile = "asdf"
-        }
+        enabled = false,
+        -- settings = {
+        --   profile = "asdf"
+        -- }
       },
     },
     signatureHelp = { enabled = true },
@@ -250,3 +260,4 @@ which_key.register(vmappings, vopts)
 
 -- debugging
 -- git clone git@github.com:microsoft/java-debug.git
+

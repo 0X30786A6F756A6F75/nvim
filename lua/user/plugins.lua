@@ -61,7 +61,13 @@ return packer.startup(function(use)
   use "kyazdani42/nvim-tree.lua"
   use "tamago324/lir.nvim"
   use "akinsho/bufferline.nvim"
-  use "folke/trouble.nvim" -- show list diagnostics
+  use {
+    "folke/trouble.nvim",
+    requires = "nvim-tree/nvim-web-devicons",
+    config = function()
+      require("trouble").setup {}
+    end
+  }
 
   -- Terminal
   use { "akinsho/toggleterm.nvim", tag = "v1.*" }
@@ -91,49 +97,46 @@ return packer.startup(function(use)
   -- styled components
   use { "styled-components/vim-styled-components", branch = "main" }
 
-  -- Completion
-  use "hrsh7th/cmp-cmdline" -- cmdline completions
-  use "hrsh7th/cmp-emoji"
-  use "zbirenbaum/copilot-cmp"
-  use { "tzachar/cmp-tabnine", commit = "1a8fd2795e4317fd564da269cc64a2fa17ee854e", run = "./install.sh" }
-
-  -- use "SirVer/ultisnips"
-  -- use "quangnguyen30192/cmp-nvim-ultisnips"
-  -- snippe snippy users.
-  -- use "dcampos/nvim-snippy"
-  -- use "dcampos/cmp-snippy"
-
   -- LSP
+  use "neovim/nvim-lspconfig" -- enable LSP
+  use "williamboman/mason.nvim"
+  use "williamboman/mason-lspconfig.nvim"
+  use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
   use "ray-x/lsp_signature.nvim"
+  use "SmiteshP/nvim-navic"
+  use "simrat39/symbols-outline.nvim"
+  use "b0o/SchemaStore.nvim"
+  -- use "github/copilot.vim"
   use {
-    'VonHeikemen/lsp-zero.nvim',
-    branch = 'v1.x',
-    requires = {
-      -- LSP Support
-      { 'neovim/nvim-lspconfig' }, -- Required
-      { 'williamboman/mason.nvim' }, -- Optional
-      { 'williamboman/mason-lspconfig.nvim' }, -- Optional
-
-      -- Autocompletion
-      { 'hrsh7th/nvim-cmp' }, -- Required
-      { 'hrsh7th/cmp-nvim-lsp' }, -- Required
-      { 'hrsh7th/cmp-buffer' }, -- Optional
-      { 'hrsh7th/cmp-path' }, -- Optional
-      { 'saadparwaiz1/cmp_luasnip' }, -- Optional
-      { 'hrsh7th/cmp-nvim-lua' }, -- Optional
-
-      -- Snippets
-      { 'L3MON4D3/LuaSnip' }, -- Required
-      { 'rafamadriz/friendly-snippets' }, -- Optional
-    }
+    "zbirenbaum/copilot.lua",
+    event = { "VimEnter" },
+    config = function()
+      vim.defer_fn(function()
+        require "user.copilot"
+      end, 100)
+    end,
   }
+  use "RRethy/vim-illuminate"
+  use "j-hui/fidget.nvim"
+  use "lvimuser/lsp-inlayhints.nvim"
+  use "https://git.sr.ht/~whynothugo/lsp_lines.nvim"
+
+  -- Completion
+  use "christianchiarulli/nvim-cmp"
+  use "hrsh7th/cmp-buffer" -- buffer completions
+  use "hrsh7th/cmp-path" -- path completions
+  use "hrsh7th/cmp-cmdline" -- cmdline completions
+  use "saadparwaiz1/cmp_luasnip" -- snippet completions
+  use "hrsh7th/cmp-nvim-lsp"
+  use "hrsh7th/cmp-emoji"
+  use "hrsh7th/cmp-nvim-lua"
+  use "zbirenbaum/copilot-cmp"
+  use { "tzachar/cmp-tabnine", commit = "1a8fd2795e4317fd564da269cc64a2fa17ee854e", 
+run = "./install.sh" }
 
   -- Snippet
-  use "SmiteshP/nvim-navic"
-  use "b0o/SchemaStore.nvim" -- json
-  use { "michaelb/sniprun", run = "bash ./install.sh" }
-
-  use "RRethy/vim-illuminate"
+  use "L3MON4D3/LuaSnip" --snippet engine
+  use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
 
   -- Java
   use "mfussenegger/nvim-jdtls"
