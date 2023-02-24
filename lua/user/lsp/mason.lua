@@ -112,9 +112,8 @@ for _, server in pairs(servers) do
   end
 
   if server == "jdtls" then
-    -- local java_opts = require("user.lsp.settings.jdtls")
-    -- opts = vim.tbl_deep_extend("force", java_opts, opts)
-    goto continue
+    local java_opts = require("user.lsp.settings.jdtls")
+    opts = vim.tbl_deep_extend("force", java_opts, opts)
   end
 
   if server == "rust_analyzer" then
