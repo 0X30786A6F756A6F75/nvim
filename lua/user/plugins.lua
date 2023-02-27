@@ -141,6 +141,23 @@ run = "./install.sh" }
   -- Java
   use "mfussenegger/nvim-jdtls"
 
+  -- PHP 
+  use({
+    "gbprod/phpactor.nvim",
+    -- run = require("phpactor.handler.update"), -- To install/update phpactor when installing this plugin
+    requires = {
+      "nvim-lua/plenary.nvim", -- required to update phpactor
+      "neovim/nvim-lspconfig" -- required to automaticly register lsp serveur
+    },
+    config = function()
+      require("phpactor").setup({
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      })
+    end
+  })
+
   -- Fuzzy Finder/Telescope
   use "nvim-telescope/telescope.nvim"
   use "nvim-telescope/telescope-media-files.nvim"

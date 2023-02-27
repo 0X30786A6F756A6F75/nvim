@@ -25,6 +25,7 @@ local servers = {
   "rust_analyzer",
   "taplo",
   "intelephense"
+  -- "phpactor"
 }
 
 local settings = {
