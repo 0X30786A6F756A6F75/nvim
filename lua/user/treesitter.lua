@@ -13,7 +13,7 @@ configs.setup {
   matchup = {
     enable = true, -- mandatory, false will disable the whole extension
     disable_virtual_text = true,
-    disable = { "html" }, -- optional, list of language that will be disabled
+    -- disable = { "html" }, -- optional, list of language that will be disabled
     -- include_match_words = false
   },
   highlight = {
@@ -21,8 +21,8 @@ configs.setup {
     enable = true, -- false will disable the whole extension
     -- disable = { "css", "html" }, -- list of language that will be disabled
     -- disable = { "css", "markdown" }, -- list of language that will be disabled
-    disable = { "markdown" }, -- list of language that will be disabled
-    -- additional_vim_regex_highlighting = true,
+    disable = { "" }, -- list of language that will be disabled
+    additional_vim_regex_highlight = true
   },
   autopairs = {
     enable = true,
@@ -50,7 +50,7 @@ configs.setup {
       -- "Salmon",
       -- "LawnGreen",
     },
-    disable = { "html" },
+    -- disable = { "html" },
   },
   playground = {
     enable = true,

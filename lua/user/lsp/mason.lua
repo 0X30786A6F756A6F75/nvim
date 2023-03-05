@@ -12,6 +12,7 @@ local servers = {
   "cssls",
   "cssmodules_ls",
   "tailwindcss",
+  "html",
   "emmet_ls",
   "jdtls",
   "jsonls",
@@ -72,6 +73,11 @@ for _, server in pairs(servers) do
     opts = vim.tbl_deep_extend("force", tailwindcss, opts)
   end
 
+  if server == "html" then
+    local html = require("user.lsp.settings.html")
+    opts = vim.tbl_deep_extend("force", html, opts)
+  end
+
   if server == "sumneko_lua" then
     local sumneko_opts = require("user.lsp.settings.sumneko_lua")
     opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
@@ -82,10 +88,10 @@ for _, server in pairs(servers) do
     opts = vim.tbl_deep_extend("force", intelephense_opts, opts)
   end
 
-  if server == "phpactor" then
-    local phpactor_opts = require("user.lsp.settings.phpactor")
-    opts = vim.tbl_deep_extend("force", phpactor_opts, opts)
-  end
+  -- if server == "phpactor" then
+  --   local phpactor_opts = require("user.lsp.settings.phpactor")
+  --   opts = vim.tbl_deep_extend("force", phpactor_opts, opts)
+  -- end
 
   if server == "psalm" then
     local psalm_opts = require("user.lsp.settings.psalm")

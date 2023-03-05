@@ -49,10 +49,10 @@ return packer.startup(function(use)
 
   use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
   use {
-    'numToStr/Comment.nvim',
+    "numToStr/Comment.nvim",
     config = function()
-      require('Comment').setup()
-    end
+      require("Comment").setup()
+    end,
   }
 
   -- Icon
@@ -66,7 +66,7 @@ return packer.startup(function(use)
     requires = "nvim-tree/nvim-web-devicons",
     config = function()
       require("trouble").setup {}
-    end
+    end,
   }
 
   -- Terminal
@@ -131,8 +131,7 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-emoji"
   use "hrsh7th/cmp-nvim-lua"
   use "zbirenbaum/copilot-cmp"
-  use { "tzachar/cmp-tabnine", commit = "1a8fd2795e4317fd564da269cc64a2fa17ee854e", 
-run = "./install.sh" }
+  use { "tzachar/cmp-tabnine", commit = "1a8fd2795e4317fd564da269cc64a2fa17ee854e", run = "./install.sh" }
 
   -- Snippet
   use "L3MON4D3/LuaSnip" --snippet engine
@@ -141,22 +140,22 @@ run = "./install.sh" }
   -- Java
   use "mfussenegger/nvim-jdtls"
 
-  -- PHP 
-  use({
+  -- PHP
+  use {
     "gbprod/phpactor.nvim",
     -- run = require("phpactor.handler.update"), -- To install/update phpactor when installing this plugin
     requires = {
       "nvim-lua/plenary.nvim", -- required to update phpactor
-      "neovim/nvim-lspconfig" -- required to automaticly register lsp serveur
+      "neovim/nvim-lspconfig", -- required to automaticly register lsp serveur
     },
     config = function()
-      require("phpactor").setup({
+      require("phpactor").setup {
         -- your configuration comes here
         -- or leave it empty to use the default settings
         -- refer to the configuration section below
-      })
-    end
-  })
+      }
+    end,
+  }
 
   -- Fuzzy Finder/Telescope
   use "nvim-telescope/telescope.nvim"
@@ -167,6 +166,7 @@ run = "./install.sh" }
   use "nvim-treesitter/nvim-treesitter-context"
   use "p00f/nvim-ts-rainbow"
   use "nvim-treesitter/playground"
+  use "RRethy/nvim-treesitter-textsubjects"
   use "windwp/nvim-ts-autotag"
   use "nvim-treesitter/nvim-treesitter-textobjects"
 
@@ -223,13 +223,16 @@ run = "./install.sh" }
 
   -- twig
   use "othree/html5.vim"
-  use "lumiliet/vim-twig"
+  -- use "lumiliet/vim-twig"
 
   -- symfony
   use "qbbr/vim-symfony"
 
   -- repeat nvim
   use "tpope/vim-repeat"
+
+  -- syntaxt highlighting
+  use 'sheerun/vim-polyglot'
 
   -- Lualine
   -- use "nvim-lualine/lualine.nvim"
