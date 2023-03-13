@@ -20,6 +20,7 @@ return {
     "less",
     "sss",
     "hbs",
+    "html.twig",
     "handlebars",
   },
 }
