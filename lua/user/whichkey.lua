@@ -85,15 +85,6 @@ local m_opts = {
   nowait = true -- use `nowait` when creating keymaps
 }
 
-local m_mappings = {
-  a = {'<cmd>lua require("harpoon.mark").add_file()<cr>', "Harpoon"},
-  s = { "<cmd>Telescope harpoon marks<cr>", "Search Files" },
-
-  ["."] = { '<cmd>lua require("harpoon.ui").nav_next()<cr>', "Harpoon Next" },
-  [","] = { '<cmd>lua require("harpoon.ui").nav_prev()<cr>', "Harpoon Prev" },
-  [";"] = { '<cmd>lua require("harpoon.ui").toggle_quick_menu()<cr>', "Harpoon UI" },
-  }
-
 local mappings = {
   ["a"] = {"<cmd>Alpha<cr>", "Alpha"},
   b = {"<cmd>lua require('user.bfs').open()<cr>", "Buffers"},
@@ -155,16 +146,10 @@ local mappings = {
     x = {"<cmd>lua require'dap'.terminate()<cr>", "Exit"}
   },
 
-  -- nnoremap <silent> <leader>B :lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>
-  -- nnoremap <silent> <leader>lp :lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>
-  -- require("dapui").open()
-  -- require("dapui").close()
-  -- require("dapui").toggle()
-
   f = {
     name = "Find",
     r = {"<cmd>Telescope git_branches<cr>", "Checkout branch"},
-    -- c = {"<cmd>Telescope colorscheme<cr>", "Colorscheme"},
+    c = {"<cmd>Telescope colorscheme<cr>", "Colorscheme"},
     f = {
       "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
       "Find files"
@@ -182,7 +167,7 @@ local mappings = {
     R = {"<cmd>Telescope registers<cr>", "Registers"},
     k = {"<cmd>Telescope keymaps<cr>", "Keymaps"},
     u = {"<cmd>Telescope undo<cr>", "UndoList"},
-    -- C = {"<cmd>Telescope commands<cr>", "Commands"},
+    C = {"<cmd>Telescope commands<cr>", "Commands"},
   },
 
   g = {
@@ -199,7 +184,6 @@ local mappings = {
     a = {"<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action"},
     c = {"<cmd>lua require('user.lsp').server_capabilities()<cr>", "Get Capabilities"},
     d = {"<cmd>TroubleToggle<cr>", "Diagnostics"},
-    w = {"<cmd>Telescope lsp_workspace_diagnostics<cr>", "Workspace Diagnostics"},
     f = {"<cmd>lua vim.lsp.buf.format({ async = true })<cr>", "Format"},
     F = {"<cmd>LspToggleAutoFormat<cr>", "Toggle Autoformat"},
     i = {"<cmd>LspInfo<cr>", "Info"},
@@ -207,25 +191,13 @@ local mappings = {
     j = {"<cmd>lua vim.diagnostic.goto_next({buffer=0})<CR>", "Next Diagnostic"},
     k = {"<cmd>lua vim.diagnostic.goto_prev({buffer=0})<cr>", "Prev Diagnostic"},
     l = {"<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action"},
-    o = {"<cmd>SymbolsOutline<cr>", "Outline"},
     q = {"<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Quickfix"},
     r = {"<cmd>lua vim.lsp.buf.rename()<cr>", "Rename"},
     R = {"<cmd>TroubleToggle lsp_references<cr>", "References"},
     s = {"<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols"},
     S = {"<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", "Workspace Symbols"},
     t = {'<cmd>lua require("user.functions").toggle_diagnostics()<cr>', "Toggle Diagnostics"},
-    u = {"<cmd>LuaSnipUnlinkCurrent<cr>", "Unlink Snippet"}
   },
-
-  --[[ s = { ]]
-  --[[   name = "surround", ]]
-  --[[   ["."] = { "<cmd>lua require('vim_surround').repeat_last()<cr>", "Repeat" }, ]]
-  --[[   a = { "<cmd>lua require('surround').surround_add(true)<cr>", "Add" }, ]]
-  --[[   d = { "<cmd>lua require('surround').surround_delete()<cr>", "Delete" }, ]]
-  --[[   r = { "<cmd>lua require('surround').surround_replace()<cr>", "Replace" }, ]]
-  --[[   q = { "<cmd>lua require('surround').toggle_quotes()<cr>", "Quotes" }, ]]
-  --[[   b = { "<cmd>lua require('surround').toggle_brackets()<cr>", "Brackets" }, ]]
-  --[[ }, ]]
 
   S = {
     name = "SnipRun",
@@ -272,7 +244,9 @@ local mappings = {
     ["6"] = {"<cmd>lua require('harpoon.ui').nav_file(6)<CR>", "Goto Mark 6"},
     ["7"] = {"<cmd>lua require('harpoon.ui').nav_file(7)<CR>", "Goto Mark 7"},
     ["8"] = {"<cmd>lua require('harpoon.ui').nav_file(8)<CR>", "Goto Mark 8"},
-    ["9"] = {"<cmd>lua require('harpoon.ui').nav_file(9)<CR>", "Goto Mark 9"}
+    ["9"] = {"<cmd>lua require('harpoon.ui').nav_file(9)<CR>", "Goto Mark 9"},
+    ["."] = { '<cmd>lua require("harpoon.ui").nav_next()<cr>', "Harpoon Next" },
+    [","] = { '<cmd>lua require("harpoon.ui").nav_prev()<cr>', "Harpoon Prev" },
   }
 }
 
@@ -294,4 +268,3 @@ local vmappings = {
 which_key.setup(setup)
 which_key.register(mappings, opts)
 which_key.register(vmappings, vopts)
-which_key.register(m_mappings, m_opts)
