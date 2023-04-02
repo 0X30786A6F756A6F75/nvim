@@ -111,3 +111,7 @@ keymap("n", "<leader>j", "<cmd>lprev<CR>zz", opts)
 
 -- replace 
 keymap("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], opts)
+
+-- git fixed merge 
+-- keymap("n", "gu", "<cmd>diffget //2<CR>")
+-- keymap("n", "gu", "<cmd>diffget //3<CR>")

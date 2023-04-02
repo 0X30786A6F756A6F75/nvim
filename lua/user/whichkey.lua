@@ -97,25 +97,10 @@ local m_mappings = {
 local mappings = {
   ["a"] = {"<cmd>Alpha<cr>", "Alpha"},
   b = {"<cmd>lua require('user.bfs').open()<cr>", "Buffers"},
-  -- ["b"] = {
-  --   "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-  --   "Buffers",
-  -- },
   ["e"] = {"<cmd>NvimTreeToggle<cr>", "Explorer"},
   ["h"] = {"<cmd>nohlsearch<CR>", "No HL"},
-  --[[ ["q"] = { '<cmd>lua require("user.functions").smart_quit()<CR>', "Quit" }, ]]
   ["/"] = {'<cmd>lua require("Comment.api").toggle_current_linewise()<CR>', "Comment"},
   ["c"] = {"<cmd>Bdelete!<CR>", "Close Buffer"},
-
-  -- :lua require'lir.float'.toggle()
-  -- ["f"] = {
-  --   "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-  --   "Find files",
-  -- },
-  -- ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
-  ["P"] = {"<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects"},
-  -- ["R"] = { '<cmd>lua require("renamer").rename()<cr>', "Rename" },
-  ["gy"] = "Link",
 
   p = {
     name = "Packer",
@@ -179,7 +164,7 @@ local mappings = {
   f = {
     name = "Find",
     r = {"<cmd>Telescope git_branches<cr>", "Checkout branch"},
-    c = {"<cmd>Telescope colorscheme<cr>", "Colorscheme"},
+    -- c = {"<cmd>Telescope colorscheme<cr>", "Colorscheme"},
     f = {
       "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
       "Find files"
@@ -187,7 +172,7 @@ local mappings = {
     t = { "<cmd>Telescope live_grep<cr>", "Find Text" },
     s = { "<cmd>Telescope grep_string<cr>", "Find String" },
     p = {"<cmd>Telescope projects<CR>", "Find Projects"},
-    b = {"<cmd>Telescope buffers<CR>", "Buffers"},
+    b = {"<cmd>Telescope file_browser<CR>", "File Browser"},
     m = { "<cmd>lua require('telescope').extensions.media_files.media_files()<cr>", "Media" },
     g = {"<cmd>Telescope live_grep theme=ivy<cr>", "Find Text"},
     h = {"<cmd>Telescope help_tags<cr>", "Help"},
@@ -196,7 +181,8 @@ local mappings = {
     o = {"<cmd>Telescope oldfiles<cr>", "Recent File"},
     R = {"<cmd>Telescope registers<cr>", "Registers"},
     k = {"<cmd>Telescope keymaps<cr>", "Keymaps"},
-    C = {"<cmd>Telescope commands<cr>", "Commands"},
+    u = {"<cmd>Telescope undo<cr>", "UndoList"},
+    -- C = {"<cmd>Telescope commands<cr>", "Commands"},
   },
 
   g = {
@@ -259,11 +245,6 @@ local mappings = {
   --[[ }, ]]
 
   S = {
-    -- name = "Session",
-    -- s = { "<cmd>SaveSession<cr>", "Save" },
-    -- l = { "<cmd>LoadLastSession!<cr>", "Load Last" },
-    -- d = { "<cmd>LoadCurrentDirSession!<cr>", "Load Last Dir" },
-    -- f = { "<cmd>Telescope sessions save_current=false<cr>", "Find Session" },
     name = "SnipRun",
     c = {"<cmd>SnipClose<cr>", "Close"},
     f = {"<cmd>%SnipRun<cr>", "Run File"},

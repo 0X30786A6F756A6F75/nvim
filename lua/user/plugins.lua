@@ -143,6 +143,11 @@ return packer.startup(function(use)
   -- Fuzzy Finder/Telescope
   use "nvim-telescope/telescope.nvim"
   use "nvim-telescope/telescope-media-files.nvim"
+  use "nvim-telescope/telescope-file-browser.nvim"
+  use "debugloop/telescope-undo.nvim"
+
+  -- git differ 
+  use 'sindrets/diffview.nvim'
 
   -- Treesitter
   use "nvim-treesitter/nvim-treesitter"
@@ -215,7 +220,7 @@ return packer.startup(function(use)
   use "tpope/vim-repeat"
 
   -- syntaxt highlighting
-  use 'sheerun/vim-polyglot'
+  use "sheerun/vim-polyglot"
 
   -- Lualine
   -- use "nvim-lualine/lualine.nvim"
