@@ -1,10 +1,10 @@
 -- For copilot.vim
-vim.g.copilot_filetypes = {
-  ["*"] = false,
-}
+-- vim.g.copilot_filetypes = {
+--   ["*"] = false,
+-- }
 
 vim.cmd [[
-  imap <silent><script><expr> <C-S> copilot#Accept("\<CR>")
+  imap <silent><script><expr> <C-A> copilot#Accept("\<CR>")
   let g:copilot_no_tab_map = v:true
 ]]
 
@@ -16,12 +16,22 @@ end
 copilot.setup {
   cmp = {
     enabled = true,
-    method = "getPanelCompletions",
+    method = "getCompletionsCycling",
   },
   panel = { -- no config options yet
     enabled = true,
   },
+  suggestion = { enabled = false },
+
   ft_disable = { "markdown" },
   -- plugin_manager_path = vim.fn.stdpath "data" .. "/site/pack/packer",
-  -- server_opts_overrides = {},
+  server_opts_overrides = {
+    -- trace = "verbose",
+    settings = {
+      advanced = {
+        -- listCount = 10, -- #completions for panel
+        inlineSuggestCount = 3, -- #completions for getCompletions
+      },
+    },
+  },
 }

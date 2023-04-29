@@ -9,8 +9,6 @@ local setup = {
       enabled = true, -- enabling this will show WhichKey when pressing z= to select spelling suggestions
       suggestions = 20 -- how many suggestions should be shown in the list?
     },
-    -- the presets plugin, adds help for a bunch of default keybindings in Neovim
-    -- No actual key bindings are created
     presets = {
       operators = false, -- adds help for operators like d, y, ... and registers them for motion / text object completion
       motions = false, -- adds help for motions
@@ -21,12 +19,7 @@ local setup = {
       g = true -- bindings for prefixed with g
     }
   },
-  -- add operators that will trigger motion and text object completion
-  -- to enable all native operators, set the preset / operators plugin above
-  -- operators = { gc = "Comments" },
   key_labels = {
-    -- override the label used to display some keys. It doesn't effect WK in any other way.
-    -- For example:
     ["<space>"] = "SPC",
     -- ["<cr>"] = "RET",
     -- ["<tab>"] = "TAB"
@@ -56,12 +49,7 @@ local setup = {
   ignore_missing = true, -- enable this to hide mappings for which you didn't specify a label
   hidden = {"<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ "}, -- hide mapping boilerplate
   show_help = false, -- show help message on the command line when the popup is visible
-  -- triggers = "auto", -- automatically setup triggers
-  -- triggers = {"<leader>"} -- or specify a list manually
   triggers_blacklist = {
-    -- list of mode / prefixes that should never be hooked by WhichKey
-    -- this is mostly relevant for key maps that start with a native binding
-    -- most people should not need to change this
     i = {"j", "k"},
     v = {"j", "k"}
   }
@@ -87,7 +75,7 @@ local m_opts = {
 
 local mappings = {
   ["a"] = {"<cmd>Alpha<cr>", "Alpha"},
-  b = {"<cmd>lua require('user.bfs').open()<cr>", "Buffers"},
+  ["b"] = {"<cmd>Telescope buffers<cr>", "Buffers"},
   ["e"] = {"<cmd>NvimTreeToggle<cr>", "Explorer"},
   ["h"] = {"<cmd>nohlsearch<CR>", "No HL"},
   ["/"] = {'<cmd>lua require("Comment.api").toggle_current_linewise()<CR>', "Comment"},

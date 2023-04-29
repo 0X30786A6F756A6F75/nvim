@@ -1,8 +1,6 @@
 local opts = { noremap = true, silent = true }
 
-local term_opts = { silent = true }
-
--- Shorten function name
+local term_opts = { silent = true } -- Shorten function name
 local keymap = vim.keymap.set
 
 --Remap space as leader key
@@ -79,9 +77,9 @@ keymap("n", "<leader>ft", ":Telescope live_grep<CR>", opts)
 keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
 
 -- new line
-keymap("n", "op", "o<ESC>k", {noremap = false})
-keymap("n", "oo", "A<CR>", {noremap = false})
-keymap("n", "oi", "O<ESC>j", {noremap = false})
+keymap("n", "op", "o<ESC>k", opts)
+keymap("n", "oi", "O<ESC>j", opts)
+keymap("n", "oo", "o", opts)
 
 keymap("n", "Y", "y$", opts)
 
@@ -95,16 +93,12 @@ keymap("n", "<C-u>", "<C-u>zz", opts)
 keymap("n", "n", "nzzzv", opts)
 keymap("n", "N", "Nzzzv", opts)
 
--- replace word select 
-keymap("x", "<leader>p", "\"_dP", opts)
-
 --tmux 
 keymap("n", "<C-f>", "<cmd>!tmux neww tmux-sessionizer<CR>", opts)
 
-
 -- quickfix navigation
-keymap("n", "<C-k>", "<cmd>cnext<CR>zz", opts)
-keymap("n", "<C-j>", "<cmd>cprev<CR>zz", opts)
+keymap("n", "<C-z>", "<cmd>cnext<CR>zz", opts)
+keymap("n", "<C-p>", "<cmd>cprev<CR>zz", opts)
 keymap("n", "<leader>k", "<cmd>lnext<CR>zz", opts)
 keymap("n", "<leader>j", "<cmd>lprev<CR>zz", opts)
 
