@@ -86,9 +86,9 @@ return packer.startup(function(use)
   use "folke/which-key.nvim"
 
   -- Colorschemes
-  use "lunarvim/onedarker.nvim"
-  use "lunarvim/darkplus.nvim"
   use "folke/tokyonight.nvim"
+  use 'sainnhe/gruvbox-material'
+  use 'sainnhe/edge'
 
   -- Color detect
   use "NvChad/nvim-colorizer.lua"
@@ -121,7 +121,7 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-emoji"
   use "hrsh7th/cmp-nvim-lua"
   use "zbirenbaum/copilot-cmp"
-  use "github/copilot.vim"
+  -- use "github/copilot.vim"
   use {
     "zbirenbaum/copilot.lua",
     event = { "VimEnter" },
@@ -167,10 +167,8 @@ return packer.startup(function(use)
   use "rcarriga/nvim-dap-ui"
   use "ravenxrz/DAPInstall.nvim"
 
-  -- previewing goto definition call
-  use "rmagatti/goto-preview"
   -- prisma
-  use "pantharshit00/vim-prisma"
+  --use "pantharshit00/vim-prisma"
 
   -- spellchecker language
   use "lewis6991/spellsitter.nvim"
@@ -178,7 +176,6 @@ return packer.startup(function(use)
   -- multi cursor
   use "terryma/vim-multiple-cursors"
 
-  use "nacro90/numb.nvim" -- Visual line
   use "monaqa/dial.nvim" -- Increment/Decrement
 
   -- Quickfix
@@ -197,13 +194,13 @@ return packer.startup(function(use)
   use "moll/vim-bbye"
   use "lewis6991/impatient.nvim"
   use "andymass/vim-matchup"
-  -- use "karb94/neoscroll.nvim"
+  use "karb94/neoscroll.nvim"
 
   -- Marks
   use "ThePrimeagen/harpoon"
 
   -- tabs
-  use "tiagovla/scope.nvim"
+  -- use "tiagovla/scope.nvim"
 
   -- twig
   use "othree/html5.vim"

@@ -17,10 +17,7 @@ configs.setup {
     -- include_match_words = false
   },
   highlight = {
-    -- use_languagetree = true,
     enable = true, -- false will disable the whole extension
-    -- disable = { "css", "html" }, -- list of language that will be disabled
-    -- disable = { "css", "markdown" }, -- list of language that will be disabled
     disable = { "" }, -- list of language that will be disabled
     additional_vim_regex_highlight = true
   },
@@ -40,15 +37,6 @@ configs.setup {
     enable = true,
     extended_mode = false,
     colors = {
-      -- "#68a0b0",
-      -- "#946EaD",
-      -- "#c7aA6D",
-      "Gold",
-      "Orchid",
-      "DodgerBlue",
-      -- "Cornsilk",
-      -- "Salmon",
-      -- "LawnGreen",
     },
     -- disable = { "html" },
   },

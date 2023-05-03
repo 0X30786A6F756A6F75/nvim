@@ -8,6 +8,7 @@
 --    ]])
 --	end,
 -- })
+
 -- Set wrap and spell in markdonw and gitcommit
 vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = { "gitcommit", "markdown" },
@@ -24,15 +25,6 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
     vim.opt_local.relativenumber = false
   end
 })
-
-vim.cmd "autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif"
--- vim.api.nvim_create_autocmd({ "BufEnter" }, {
---   callback = function()
---     vim.cmd [[
---       if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif
---     ]]
---   end,
--- })
 
 -- Fixes Autocomment
 vim.api.nvim_create_autocmd({ "BufWinEnter" }, {

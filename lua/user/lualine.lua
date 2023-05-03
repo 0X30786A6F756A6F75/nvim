@@ -10,7 +10,8 @@ vim.api.nvim_set_hl(0, "SLBranchName", { fg = "#D4D4D4", bg = "#303030", bold = 
 vim.api.nvim_set_hl(0, "SLProgress", { fg = "#D4D4D4", bg = "#303030" })
 vim.api.nvim_set_hl(0, "SLSeparator", { fg = "#808080", bg = "#252525" })
 local mode_color = {
-  n = "#569cd6",
+  -- n = "#569cd6",
+  n = "#808080",
   i = "#6a9955",
   v = "#c586c0",
   [""] = "#c586c0",
@@ -166,8 +167,8 @@ lualine.setup {
   options = {
     globalstatus = true,
     icons_enabled = true,
-    -- theme = "auto",
-    theme = theme,
+    theme = "auto",
+    -- theme = theme,
     component_separators = { left = "", right = "" },
     section_separators = { left = "", right = "" },
     disabled_filetypes = { "alpha", "dashboard" },

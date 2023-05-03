@@ -13,18 +13,12 @@ nvim_tree.setup({
 	disable_netrw = true,
 	sort_by = "case_sensitive", -- sort by name
 	hijack_netrw = true,
-	open_on_setup = false,
-	ignore_ft_on_setup = {
-		"startify",
-		"dashboard",
-		"alpha",
-	},
 	filters = {
-		custom = { ".git", ".expo", "node_modules" },
+		custom = { ".git", ".expo", "node_modules", "vendor" },
 		dotfiles = false,
 		exclude = { ".gitignore" },
 	},
-	open_on_tab = false,
+	open_on_tab = true,
 	hijack_cursor = false,
 	update_cwd = true,
 	hijack_directories = {
@@ -100,14 +94,6 @@ nvim_tree.setup({
 		update_cwd = true,
 		ignore_list = {},
 	},
-	-- system_open = {
-	--   cmd = nil,
-	--   args = {},
-	-- },
-	-- filters = {
-	--   dotfiles = false,
-	--   custom = {},
-	-- },
 	git = {
 		enable = true,
 		ignore = false,
