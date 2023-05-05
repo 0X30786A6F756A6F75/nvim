@@ -1,6 +1,7 @@
 local opts = { noremap = true, silent = true }
-
+local remap_opts = {remap =true, silent = true}
 local term_opts = { silent = true } -- Shorten function name
+
 local keymap = vim.keymap.set
 
 --Remap space as leader key
@@ -56,8 +57,6 @@ keymap("v", "p", '"_dP', opts)
 
 -- Visual Block --
 -- Move text up and down
-keymap("x", "J", ":move>+1<CR>gv-gv", opts)
-keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
@@ -81,6 +80,7 @@ keymap("n", "op", "o<ESC>k", opts)
 keymap("n", "oi", "O<ESC>j", opts)
 keymap("n", "oo", "o", opts)
 
+-- yank
 keymap("n", "Y", "y$", opts)
 
 -- goto-preview
@@ -88,20 +88,13 @@ keymap("n", "gp", "<cmd>lua require('goto-preview').goto_preview_definition()<CR
 
 -- Keep Cursor
 keymap("n", "J", "mzJ`z", opts)
-keymap("n", "<C-d>", "<C-d>zz", opts)
-keymap("n", "<C-u>", "<C-u>zz", opts)
-keymap("n", "n", "nzzzv", opts)
-keymap("n", "N", "Nzzzv", opts)
+keymap("n", "<C-d>", "<C-d>zz", remap_opts)
+keymap("n", "<C-u>", "<C-u>zz", remap_opts)
+keymap("n", "n", "nzzzv", remap_opts)
+keymap("n", "N", "Nzzzv", remap_opts)
 
 --tmux 
 keymap("n", "<C-f>", "<cmd>!tmux neww tmux-sessionizer<CR>", opts)
-
--- quickfix navigation
-keymap("n", "<C-z>", "<cmd>cnext<CR>zz", opts)
-keymap("n", "<C-p>", "<cmd>cprev<CR>zz", opts)
-keymap("n", "<leader>k", "<cmd>lnext<CR>zz", opts)
-keymap("n", "<leader>j", "<cmd>lprev<CR>zz", opts)
-
 
 -- replace 
 keymap("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], opts)

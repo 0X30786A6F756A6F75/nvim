@@ -25,8 +25,9 @@ local servers = {
   "clangd",
   "rust_analyzer",
   "taplo",
-  "intelephense"
+  "intelephense",
   -- "phpactor"
+  "gopls"
 }
 
 local settings = {

@@ -18,12 +18,10 @@ nvim_tree.setup({
 		dotfiles = false,
 		exclude = { ".gitignore" },
 	},
-	open_on_tab = true,
 	hijack_cursor = false,
 	update_cwd = true,
 	hijack_directories = {
-		enable = true,
-		auto_open = true,
+		enable = false,
 	},
 	-- --   error
 	-- --   info

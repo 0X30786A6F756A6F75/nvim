@@ -59,7 +59,7 @@ return packer.startup(function(use)
   use "kyazdani42/nvim-web-devicons"
 
   use "kyazdani42/nvim-tree.lua"
-  use "tamago324/lir.nvim"
+  -- use "tamago324/lir.nvim"
   use "akinsho/bufferline.nvim"
   use {
     "folke/trouble.nvim",
@@ -67,6 +67,17 @@ return packer.startup(function(use)
     config = function()
       require("trouble").setup {}
     end,
+  }
+
+  -- golang
+  use {
+    "ray-x/go.nvim",
+    config = function()
+      require("go").setup()
+    end,
+    event = { "CmdlineEnter" },
+    ft = { "go", "gomod" },
+    build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
   }
 
   -- Terminal
@@ -87,8 +98,8 @@ return packer.startup(function(use)
 
   -- Colorschemes
   use "folke/tokyonight.nvim"
-  use 'sainnhe/gruvbox-material'
-  use 'sainnhe/edge'
+  use "sainnhe/gruvbox-material"
+  use "sainnhe/edge"
 
   -- Color detect
   use "NvChad/nvim-colorizer.lua"
@@ -122,7 +133,7 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-nvim-lua"
   use "zbirenbaum/copilot-cmp"
   -- use "github/copilot.vim"
-  use {
+  --[[ use {
     "zbirenbaum/copilot.lua",
     event = { "VimEnter" },
     config = function()
@@ -130,7 +141,7 @@ return packer.startup(function(use)
         require "user.copilot"
       end, 100)
     end,
-  }
+  } ]]
   use { "tzachar/cmp-tabnine", commit = "1a8fd2795e4317fd564da269cc64a2fa17ee854e", run = "./install.sh" }
 
   -- Snippet
@@ -146,8 +157,8 @@ return packer.startup(function(use)
   use "nvim-telescope/telescope-file-browser.nvim"
   use "debugloop/telescope-undo.nvim"
 
-  -- git differ 
-  use 'sindrets/diffview.nvim'
+  -- git differ
+  use "sindrets/diffview.nvim"
 
   -- Treesitter
   use "nvim-treesitter/nvim-treesitter"
@@ -194,7 +205,6 @@ return packer.startup(function(use)
   use "moll/vim-bbye"
   use "lewis6991/impatient.nvim"
   use "andymass/vim-matchup"
-  use "karb94/neoscroll.nvim"
 
   -- Marks
   use "ThePrimeagen/harpoon"
