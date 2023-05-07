@@ -60,7 +60,11 @@ return packer.startup(function(use)
 
   use "kyazdani42/nvim-tree.lua"
   -- use "tamago324/lir.nvim"
+
+  -- Tabline
   use "akinsho/bufferline.nvim"
+  -- use "tiagovla/scope.nvim"
+
   use {
     "folke/trouble.nvim",
     requires = "nvim-tree/nvim-web-devicons",
@@ -98,12 +102,11 @@ return packer.startup(function(use)
 
   -- Colorschemes
   use "folke/tokyonight.nvim"
-  use "sainnhe/gruvbox-material"
   use "sainnhe/edge"
 
   -- Color detect
   use "NvChad/nvim-colorizer.lua"
-  use "nvim-colortils/colortils.nvim"
+  -- use "nvim-colortils/colortils.nvim"
 
   -- styled components
   use { "styled-components/vim-styled-components", branch = "main" }
@@ -169,6 +172,9 @@ return packer.startup(function(use)
   use "windwp/nvim-ts-autotag"
   use "nvim-treesitter/nvim-treesitter-textobjects"
 
+  -- git
+  use 'f-person/git-blame.nvim'
+
   -- Surrond
   use "kylechui/nvim-surround"
 
@@ -208,9 +214,6 @@ return packer.startup(function(use)
 
   -- Marks
   use "ThePrimeagen/harpoon"
-
-  -- tabs
-  -- use "tiagovla/scope.nvim"
 
   -- twig
   use "othree/html5.vim"

@@ -69,6 +69,11 @@ for _, server in pairs(servers) do
     opts = vim.tbl_deep_extend("force", jsonls_opts, opts)
   end
 
+  if server == "gopls" then
+    local gopls_opts = require("user.lsp.settings.gopls")
+    opts = vim.tbl_deep_extend("force", gopls_opts, opts)
+  end
+
   if server == "tailwindcss" then
     local tailwindcss = require("user.lsp.settings.tailwindcss")
     opts = vim.tbl_deep_extend("force", tailwindcss, opts)
