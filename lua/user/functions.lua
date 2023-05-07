@@ -61,6 +61,17 @@ function M.toggle_option(option)
   vim.notify(option .. " set to " .. tostring(value))
 end
 
+function M.toggle_double_numbers(option) 
+  local value = vim.api.nvim_get_option_value(option, {})
+  if value == '' then
+    vim.opt[option] = "%l %r" 
+  else 
+    vim.opt[option] = "" 
+  end
+
+  -- vim.notify("double numbers set to " .. string(vim.api.nvim_get_option_value(option, {})))
+end
+
 function M.toggle_tabline()
   local value = vim.api.nvim_get_option_value("showtabline", {})
 

@@ -67,7 +67,6 @@ return packer.startup(function(use)
 
   use {
     "folke/trouble.nvim",
-    requires = "nvim-tree/nvim-web-devicons",
     config = function()
       require("trouble").setup {}
     end,
@@ -85,7 +84,7 @@ return packer.startup(function(use)
   }
 
   -- Terminal
-  use { "akinsho/toggleterm.nvim", tag = "v1.*" }
+  use { "akinsho/toggleterm.nvim"}
 
   -- Project
   use "ahmedkhalf/project.nvim"

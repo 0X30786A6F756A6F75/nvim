@@ -45,6 +45,7 @@ local options = {
   si = true, -- smartindent
   backspace = "start,eol,indent", -- allow backspacing over everything in insert mode
   smarttab = true, -- insert indents automatically
+  splitkeep = "screen" -- keep cursor in others screen or following screen focused
 }
 
 for key, value in pairs(options) do

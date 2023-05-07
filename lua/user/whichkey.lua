@@ -96,6 +96,7 @@ local mappings = {
     C = {"<cmd>lua vim.g.cmp_active=true<cr>", "Completion on"},
     w = {'<cmd>lua require("user.functions").toggle_option("wrap")<cr>', "Wrap"},
     r = {'<cmd>lua require("user.functions").toggle_option("relativenumber")<cr>', "Relative"},
+    d = {'<cmd>lua require("user.functions").toggle_double_numbers("statuscolumn")<cr>', "Double Numbers"},
     l = {'<cmd>lua require("user.functions").toggle_option("cursorline")<cr>', "Cursorline"},
     s = {'<cmd>lua require("user.functions").toggle_option("spell")<cr>', "Spell"},
     t = {'<cmd>lua require("user.functions").toggle_tabline()<cr>', "Tabline"}
