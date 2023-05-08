@@ -8,39 +8,15 @@ if not config_status_ok then
 	return
 end
 
-local keymap_status_ok, keymap = pcall(require, "nvim-tree.keymap")
-if not keymap_status_ok then
-	return
-end
-
-local api_status_ok, api = pcall(require, "nvim-tree.api")
-if not api_status_ok then
-	return
-end
-on_attach = function(bufnr) 
-		local function opts(desc)
-			return { desc = 'nvim-tree: ' .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
-		end
-
-		keymap.default_on_attach()
-
-		vim.keymap.set('n', 'l', api.node.open.edit, opts('Open'))
-		vim.keymap.set('n', '<CR>', api.node.open.edit, opts('Open'))
-		vim.keymap.set('n', 'o', api.node.open.edit, opts('Open'))
-		vim.keymap.set('n', 'h', api.node.navigate.parent_close, opts('Close Directory'))
-		vim.keymap.set('n', 'v', api.node.open.vertical, opts('Open: Vertical Split')) 
-end
-
 nvim_tree.setup({
 	disable_netrw = true,
-	on_attach = on_attach,
 	sort_by = "case_sensitive", -- sort by name
 	hijack_netrw = true,
 	filters = { custom = { ".git", ".expo", "node_modules", "vendor" },
 		dotfiles = false,
 		exclude = { ".gitignore" },
 	},
-	hijack_cursor = false,
+	hijack_cursor = true,
 	update_cwd = true,
 	hijack_directories = {
 		enable = true,
