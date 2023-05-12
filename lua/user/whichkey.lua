@@ -115,13 +115,6 @@ local mappings = {
     v = {"<cmd>vsplit<cr>", "VSplit"}
   },
 
-  r = {
-    name = "Replace",
-    r = {"<cmd>lua require('spectre').open()<cr>", "Replace"},
-    w = {"<cmd>lua require('spectre').open_visual({select_word=true})<cr>", "Replace Word"},
-    f = {"<cmd>lua require('spectre').open_file_search()<cr>", "Replace Buffer"}
-  },
-
   d = {
     name = "Debug",
     b = {"<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Breakpoint"},
@@ -236,6 +229,11 @@ local mappings = {
     ["9"] = {"<cmd>lua require('harpoon.ui').nav_file(9)<CR>", "Goto Mark 9"},
     ["."] = { '<cmd>lua require("harpoon.ui").nav_next()<cr>', "Harpoon Next" },
     [","] = { '<cmd>lua require("harpoon.ui").nav_prev()<cr>', "Harpoon Prev" },
+  },
+  r = {
+    r = {[[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], "Replace Word"},
+    o = {[[:%s/\<<C-r><C-w>//gc<Left><Left><Left>]], "Replace Optional"},
+    y = {[[:%s/\<<C-r><C-w>/<C-r>0/g<CR>]], "Replace Clipboard"}
   }
 }
 

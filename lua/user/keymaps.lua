@@ -97,7 +97,10 @@ keymap("n", "N", "Nzzzv", remap_opts)
 keymap("n", "<C-f>", "<cmd>!tmux neww tmux-sessionizer<CR>", opts)
 
 -- replace 
-keymap("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], opts)
+keymap("n", "<leader>rw", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], {silent = false})
+keymap("n", "<leader>rr", [[:%s/\<<C-r><C-w>//gc<Left><Left><Left>]], {silent = false})
+keymap("n", "<leader>ry", [[:%s/\<<C-r><C-w>/<C-r>0/g<CR>]], {silent = false}) 
+
 
 -- git fixed merge 
 -- keymap("n", "gu", "<cmd>diffget //2<CR>")

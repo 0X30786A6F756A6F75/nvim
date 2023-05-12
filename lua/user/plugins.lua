@@ -88,7 +88,6 @@ return packer.startup(function(use)
 
   -- Project
   use "ahmedkhalf/project.nvim"
-  use "windwp/nvim-spectre"
 
   -- Ident
   use "lukas-reineke/indent-blankline.nvim"
@@ -135,15 +134,15 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-nvim-lua"
   use "zbirenbaum/copilot-cmp"
   -- use "github/copilot.vim"
-  --[[ use {
-    "zbirenbaum/copilot.lua",
-    event = { "VimEnter" },
-    config = function()
-      vim.defer_fn(function()
-        require "user.copilot"
-      end, 100)
-    end,
-  } ]]
+  -- use {
+  --   "zbirenbaum/copilot.lua",
+  --   event = { "VimEnter" },
+  --   config = function()
+  --     vim.defer_fn(function()
+  --       require "user.copilot"
+  --     end, 100)
+  --   end,
+  -- }
   use { "tzachar/cmp-tabnine", commit = "1a8fd2795e4317fd564da269cc64a2fa17ee854e", run = "./install.sh" }
 
   -- Snippet
@@ -198,7 +197,6 @@ return packer.startup(function(use)
   use "kevinhwang91/nvim-bqf"
 
   -- motion
-  use "phaazon/hop.nvim"
   -- use "jinh0/eyeliner.nvim"
 
   use { "iamcco/markdown-preview.nvim", run = "cd app && npm install", ft = "markdown" }
