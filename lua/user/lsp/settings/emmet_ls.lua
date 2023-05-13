@@ -1,26 +1,29 @@
 -- https://github.com/pedro757/emmet
--- npm i -g ls_emmet
+-- npm install -g emmet-ls
 return {
-  cmd = { "ls_emmet", "--stdio" },
+  cmd = { "emmet-ls", "--stdio" },
   filetypes = {
-    "html",
     "css",
-    "scss",
+    "eruby",
+    "twig",
+    "html",
     "javascript",
     "javascriptreact",
-    "typescript",
-    "typescriptreact",
-    "haml",
-    "xml",
-    "xsl",
-    "pug",
-    "slim",
-    "sass",
-    "stylus",
     "less",
-    "sss",
-    "hbs",
-    "html.twig",
-    "handlebars",
+    "sass",
+    "blade",
+    "scss",
+    "svelte",
+    "gohtmltmpl",
+    "pug",
+    "typescriptreact",
+    "vue",
+  },
+  init_options = {
+    html = {
+      options = {
+        ["bem.enabled"] = true,
+      },
+    },
   },
 }

@@ -8,23 +8,20 @@ end
 
 configs.setup {
   ensure_installed = "all", -- one of "all" or a list of languages
-  sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
-  ignore_install = { "" }, -- List of parsers to ignore installing
+  sync_install = true, -- install languages synchronously (only applied to `ensure_installed`)
   matchup = {
     enable = true, -- mandatory, false will disable the whole extension
     disable_virtual_text = true,
-    -- disable = { "html" }, -- optional, list of language that will be disabled
-    -- include_match_words = false
+    include_match_words = true
   },
   highlight = {
     enable = true, -- false will disable the whole extension
-    disable = { "" }, -- list of language that will be disabled
     additional_vim_regex_highlight = true
   },
   autopairs = {
     enable = true,
   },
-  indent = { enable = true, disable = { "python", "css", "rust", "html" } },
+  indent = { enable = true, disable = { }},--"python", "css", "rust", "html" 
   context_commentstring = {
     enable = true
     --enable_autocmd = false,
@@ -34,11 +31,9 @@ configs.setup {
     disable = { "xml", "markdown" },
   },
   rainbow = {
-    enable = true,
+    enable = false,
     extended_mode = false,
-    colors = {
-    },
-    -- disable = { "html" },
+    color = {}
   },
   playground = {
     enable = true,

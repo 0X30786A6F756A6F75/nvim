@@ -58,21 +58,20 @@ return packer.startup(function(use)
   -- Icon
   use "kyazdani42/nvim-web-devicons"
 
+  -- File Manager
   use "kyazdani42/nvim-tree.lua"
   -- use "tamago324/lir.nvim"
 
   -- Tabline
   use "akinsho/bufferline.nvim"
-  -- use "tiagovla/scope.nvim"
-
-  use {
+use {
     "folke/trouble.nvim",
     config = function()
       require("trouble").setup {}
     end,
   }
 
-  -- golang
+  -- Golang
   use {
     "ray-x/go.nvim",
     config = function()
@@ -80,11 +79,14 @@ return packer.startup(function(use)
     end,
     event = { "CmdlineEnter" },
     ft = { "go", "gomod" },
-    build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
+    build = function()
+      vim.cmd [[silent! GoInstallDeps]]
+      vim.cmd [[ silent! require("go.install").update_all_sync()]]
+    end,
   }
 
   -- Terminal
-  use { "akinsho/toggleterm.nvim"}
+  use { "akinsho/toggleterm.nvim" }
 
   -- Project
   use "ahmedkhalf/project.nvim"
@@ -104,7 +106,7 @@ return packer.startup(function(use)
 
   -- Color detect
   use "NvChad/nvim-colorizer.lua"
-  -- use "nvim-colortils/colortils.nvim"
+  use "nvim-colortils/colortils.nvim"
 
   -- styled components
   use { "styled-components/vim-styled-components", branch = "main" }
@@ -115,13 +117,12 @@ return packer.startup(function(use)
   use "williamboman/mason-lspconfig.nvim"
   use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
   use "ray-x/lsp_signature.nvim"
-  use "SmiteshP/nvim-navic"
-  use "simrat39/symbols-outline.nvim"
+
+  -- use "SmiteshP/nvim-navic"
   use "b0o/SchemaStore.nvim"
   use "RRethy/vim-illuminate"
-  use "j-hui/fidget.nvim"
   use "lvimuser/lsp-inlayhints.nvim"
-  use "https://git.sr.ht/~whynothugo/lsp_lines.nvim"
+  -- use "https://git.sr.ht/~whynothugo/lsp_lines.nvim" -- virtual text
 
   -- Completion
   use "christianchiarulli/nvim-cmp"
@@ -155,7 +156,6 @@ return packer.startup(function(use)
   -- Fuzzy Finder/Telescope
   use "nvim-telescope/telescope.nvim"
   use "nvim-telescope/telescope-media-files.nvim"
-  use "nvim-telescope/telescope-file-browser.nvim"
   use "debugloop/telescope-undo.nvim"
 
   -- git differ
@@ -171,7 +171,7 @@ return packer.startup(function(use)
   use "nvim-treesitter/nvim-treesitter-textobjects"
 
   -- git
-  use 'f-person/git-blame.nvim'
+  use "f-person/git-blame.nvim"
 
   -- Surrond
   use "kylechui/nvim-surround"
@@ -180,13 +180,18 @@ return packer.startup(function(use)
   use "mfussenegger/nvim-dap"
   use "theHamsta/nvim-dap-virtual-text"
   use "rcarriga/nvim-dap-ui"
+  --[[ use {
+    "leoluz/nvim-dap-go",
+    ft = "go",
+    depedencies = "mfussenegger/nvim-dap",
+    config = function(_, opts)
+      require("dap-go").setup(opts)
+    end,
+  } ]]
   use "ravenxrz/DAPInstall.nvim"
 
   -- prisma
   --use "pantharshit00/vim-prisma"
-
-  -- spellchecker language
-  use "lewis6991/spellsitter.nvim"
 
   -- multi cursor
   use "terryma/vim-multiple-cursors"
@@ -204,8 +209,7 @@ return packer.startup(function(use)
   -- Utility
   use "rcarriga/nvim-notify"
   use "stevearc/dressing.nvim"
-  use "ghillb/cybu.nvim"
-  use "moll/vim-bbye"
+  -- use "moll/vim-bbye"
   use "lewis6991/impatient.nvim"
   use "andymass/vim-matchup"
 
@@ -214,13 +218,10 @@ return packer.startup(function(use)
 
   -- twig
   use "othree/html5.vim"
-  use "lumiliet/vim-twig"
+  -- use "lumiliet/vim-twig"
 
   -- symfony
   use "qbbr/vim-symfony"
-
-  -- repeat nvim
-  use "tpope/vim-repeat"
 
   -- syntaxt highlighting
   use "sheerun/vim-polyglot"

@@ -9,7 +9,6 @@ local icons = require "user.icons"
 
 telescope.load_extension "media_files"
 telescope.load_extension "undo"
-telescope.load_extension "file_browser"
 
 telescope.setup {
   defaults = {
@@ -206,14 +205,6 @@ telescope.setup {
       -- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
       filetypes = { "png", "webp", "jpg", "jpeg" },
       find_cmd = "rg", -- find command (defaults to `fd`)
-    },
-    file_browser = {
-      --[[ mappings = {
-        ["i"] = {
-        },
-        ["n"] = {
-        },
-      } ]]
     },
     undo = {
       side_by_side = true,
