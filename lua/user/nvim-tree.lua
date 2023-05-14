@@ -11,14 +11,14 @@ end
 nvim_tree.setup({
 	disable_netrw = true,
 	sort_by = "case_sensitive", -- sort by name
-	hijack_netrw = false,
+	hijack_netrw = true,
 	filters = { 
 		custom = { ".git", ".expo", "node_modules", "vendor" },
 		dotfiles = false,
 		exclude = { ".gitignore" },
 	},
 	hijack_cursor = true,
-	update_cwd = false,
+	update_cwd = true,
 	hijack_directories = {
 		enable = true,
 	},

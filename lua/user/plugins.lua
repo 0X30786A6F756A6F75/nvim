@@ -67,6 +67,7 @@ return packer.startup(function(use)
   use "SmiteshP/nvim-navic"
 
   -- Golang
+  use "ray-x/guihua.lua"
   use {
     "ray-x/go.nvim",
     config = function()
@@ -91,22 +92,19 @@ return packer.startup(function(use)
 
   -- Keybinds
   use "folke/which-key.nvim"
+  use {
+    "folke/todo-comments.nvim",
+    requires = "nvim-lua/plenary.nvim",
+    config = function()
+      require("todo-comments").setup {}
+    end
+  }
 
   -- Colorschemes
   use "folke/tokyonight.nvim"
-  use "sainnhe/edge"
 
   -- Color detect
-  -- use {
-  --   "NvChad/nvim-colorizer.lua",
-  --   config = function()
-  --     require("colorizer").setup()
-  --   end,
-  -- }
   use "nvim-colortils/colortils.nvim"
-
-  -- styled components
-  use { "styled-components/vim-styled-components", branch = "main" }
 
   -- LSP
   use "neovim/nvim-lspconfig" -- enable LSP
@@ -118,9 +116,9 @@ return packer.startup(function(use)
   -- Completion
   use "christianchiarulli/nvim-cmp"
   use "hrsh7th/cmp-buffer" -- buffer completions
-  use "hrsh7th/cmp-path" -- path completions
+  -- use "hrsh7th/cmp-path" -- path completions
   use "hrsh7th/cmp-cmdline" -- cmdline completions
-  use "saadparwaiz1/cmp_luasnip" -- snippet completions
+  -- use "saadparwaiz1/cmp_luasnip" -- snippet completions
   use "hrsh7th/cmp-nvim-lsp"
   use "hrsh7th/cmp-emoji"
   use "hrsh7th/cmp-nvim-lua"
@@ -158,10 +156,8 @@ return packer.startup(function(use)
   -- Treesitter
   use "nvim-treesitter/nvim-treesitter"
   use "nvim-treesitter/nvim-treesitter-context"
-  use "p00f/nvim-ts-rainbow"
-  use "nvim-treesitter/playground"
+  use {"windwp/nvim-ts-autotag", config = function() require("nvim-ts-autotag").setup() end}
   use "RRethy/nvim-treesitter-textsubjects"
-  use "windwp/nvim-ts-autotag"
   use "nvim-treesitter/nvim-treesitter-textobjects"
 
   -- Surrond
@@ -201,6 +197,8 @@ return packer.startup(function(use)
   -- git
   use "f-person/git-blame.nvim"
   use "sindrets/diffview.nvim"
+  use 'tpope/vim-rhubarb'
+  use 'lewis6991/gitsigns.nvim'
 
   -- Utility
   use "rcarriga/nvim-notify"

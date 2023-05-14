@@ -56,13 +56,13 @@ vim.api.nvim_create_autocmd({ "FocusLost" }, {
 })
 
 local format_sync_grp = vim.api.nvim_create_augroup("GoFormat", {})
-
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   pattern = { "*.go" },
   callback = function()
     -- go imports
     require('go.format').goimport()
-  end
+  end,
+  group = format_sync_grp
 })
 
 vim.api.nvim_create_autocmd({ "CursorHold" }, {
