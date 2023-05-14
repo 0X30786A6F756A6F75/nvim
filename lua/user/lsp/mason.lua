@@ -12,6 +12,7 @@ local servers = {
   "cssls",
   "cssmodules_ls",
   "tailwindcss",
+  "lua_ls",
   "html",
   "emmet_ls",
   "jdtls",
@@ -84,11 +85,10 @@ for _, server in pairs(servers) do
     opts = vim.tbl_deep_extend("force", html, opts)
   end
 
-  if server == "sumneko_lua" then
-    local sumneko_opts = require("user.lsp.settings.sumneko_lua")
+  if server == "lua_ls" then
+    local sumneko_opts = require "user.lsp.settings.sumneko_lua"
     opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
   end
-
   if server == "intelephense" then
     local intelephense_opts = require("user.lsp.settings.intelephense")
     opts = vim.tbl_deep_extend("force", intelephense_opts, opts)
@@ -125,12 +125,12 @@ for _, server in pairs(servers) do
   end
 
   if server == "jdtls" then
-    local java_opts = require("user.lsp.settings.jdtls")
-    opts = vim.tbl_deep_extend("force", java_opts, opts)
+    local jdts_opts = require("user.lsp.settings.jdtls")
+    opts = vim.tbl_deep_extend("force", jdts_opts, opts)
   end
 
   if server == "rust_analyzer" then
-    local rust_opts = require("user.lsp.settings.rust")
+    local _ = require("user.lsp.settings.rust")
     -- require("rust-tools").setup(rust_opts)
     goto continue
   end

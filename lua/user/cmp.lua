@@ -33,11 +33,6 @@ local compare = require "cmp.config.compare"
 
 require("luasnip/loaders/from_vscode").lazy_load()
 
--- local check_backspace = function()
---   local col = vim.fn.col "." - 1
---   return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
--- end
-
 local check_backspace = function()
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
   return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match "%s" == nil
@@ -240,8 +235,8 @@ cmp.setup {
   sorting = {
     priority_weight = 2,
     comparators = {
-      -- require("copilot_cmp.comparators").prioritize,
-      -- require("copilot_cmp.comparators").score,
+      require("copilot_cmp.comparators").prioritize,
+      require("copilot_cmp.comparators").score,
       compare.offset,
       compare.exact,
       -- compare.scopes,
@@ -261,7 +256,7 @@ cmp.setup {
     select = false,
   },
   window = {
-    documentation = false,
+    documentation = true,
     -- documentation = {
     --   border = "rounded",
     --   winhighlight = "NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None",

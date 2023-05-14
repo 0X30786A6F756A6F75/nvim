@@ -1,14 +1,3 @@
--- Remove statusline and tabline when in AlphaReady
--- vim.api.nvim_create_autocmd({ "User" }, {
---	pattern = { "AlphaReady" },
---	callback = function()
---		vim.cmd([[
---      set showtabline=0 | autocmd BufUnload <buffer> set showtabline=2
---      set laststatus=0 | autocmd BufUnload <buffer> set laststatus=3
---    ]])
---	end,
--- })
-
 -- Set wrap and spell in markdonw and gitcommit
 vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = { "gitcommit", "markdown" },

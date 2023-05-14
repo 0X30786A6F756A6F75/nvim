@@ -60,16 +60,11 @@ return packer.startup(function(use)
 
   -- File Manager
   use "kyazdani42/nvim-tree.lua"
-  -- use "tamago324/lir.nvim"
 
   -- Tabline
   use "akinsho/bufferline.nvim"
-use {
-    "folke/trouble.nvim",
-    config = function()
-      require("trouble").setup {}
-    end,
-  }
+  use "fgheng/winbar.nvim"
+  use "SmiteshP/nvim-navic"
 
   -- Golang
   use {
@@ -80,7 +75,7 @@ use {
     event = { "CmdlineEnter" },
     ft = { "go", "gomod" },
     build = function()
-      vim.cmd [[silent! GoInstallDeps]]
+      vim.cmd [[silent! GoGet]]
       vim.cmd [[ silent! require("go.install").update_all_sync()]]
     end,
   }
@@ -91,11 +86,8 @@ use {
   -- Project
   use "ahmedkhalf/project.nvim"
 
-  -- Ident
+  -- Indent
   use "lukas-reineke/indent-blankline.nvim"
-
-  -- Startup
-  use "goolord/alpha-nvim"
 
   -- Keybinds
   use "folke/which-key.nvim"
@@ -105,7 +97,12 @@ use {
   use "sainnhe/edge"
 
   -- Color detect
-  use "NvChad/nvim-colorizer.lua"
+  -- use {
+  --   "NvChad/nvim-colorizer.lua",
+  --   config = function()
+  --     require("colorizer").setup()
+  --   end,
+  -- }
   use "nvim-colortils/colortils.nvim"
 
   -- styled components
@@ -118,23 +115,16 @@ use {
   use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
   use "ray-x/lsp_signature.nvim"
 
-  -- use "SmiteshP/nvim-navic"
-  use "b0o/SchemaStore.nvim"
-  use "RRethy/vim-illuminate"
-  use "lvimuser/lsp-inlayhints.nvim"
-  -- use "https://git.sr.ht/~whynothugo/lsp_lines.nvim" -- virtual text
-
   -- Completion
   use "christianchiarulli/nvim-cmp"
   use "hrsh7th/cmp-buffer" -- buffer completions
   use "hrsh7th/cmp-path" -- path completions
   use "hrsh7th/cmp-cmdline" -- cmdline completions
-  use "saadparwaiz1/cmp_luasnip" -- snippet completions
+  -- use "saadparwaiz1/cmp_luasnip" -- snippet completions
   use "hrsh7th/cmp-nvim-lsp"
   use "hrsh7th/cmp-emoji"
   use "hrsh7th/cmp-nvim-lua"
   use "zbirenbaum/copilot-cmp"
-  -- use "github/copilot.vim"
   -- use {
   --   "zbirenbaum/copilot.lua",
   --   event = { "VimEnter" },
@@ -144,7 +134,8 @@ use {
   --     end, 100)
   --   end,
   -- }
-  use { "tzachar/cmp-tabnine", commit = "1a8fd2795e4317fd564da269cc64a2fa17ee854e", run = "./install.sh" }
+  -- use { "tzachar/cmp-tabnine", commit = "1a8fd2795e4317fd564da269cc64a2fa17ee854e", run = "./install.sh" }
+  use { "tzachar/cmp-tabnine", run = "./install.sh" }
 
   -- Snippet
   use "L3MON4D3/LuaSnip" --snippet engine
@@ -157,9 +148,12 @@ use {
   use "nvim-telescope/telescope.nvim"
   use "nvim-telescope/telescope-media-files.nvim"
   use "debugloop/telescope-undo.nvim"
-
-  -- git differ
-  use "sindrets/diffview.nvim"
+  use {
+    "folke/trouble.nvim",
+    config = function()
+      require("trouble").setup {}
+    end,
+  }
 
   -- Treesitter
   use "nvim-treesitter/nvim-treesitter"
@@ -169,9 +163,6 @@ use {
   use "RRethy/nvim-treesitter-textsubjects"
   use "windwp/nvim-ts-autotag"
   use "nvim-treesitter/nvim-treesitter-textobjects"
-
-  -- git
-  use "f-person/git-blame.nvim"
 
   -- Surrond
   use "kylechui/nvim-surround"
@@ -204,14 +195,29 @@ use {
   -- motion
   -- use "jinh0/eyeliner.nvim"
 
+  -- View
   use { "iamcco/markdown-preview.nvim", run = "cd app && npm install", ft = "markdown" }
+
+  -- git
+  use "f-person/git-blame.nvim"
+  use "sindrets/diffview.nvim"
 
   -- Utility
   use "rcarriga/nvim-notify"
   use "stevearc/dressing.nvim"
   -- use "moll/vim-bbye"
-  use "lewis6991/impatient.nvim"
+  use {
+    "lewis6991/impatient.nvim",
+    config = function()
+      require("impatient").enable_profile()
+    end,
+  }
   use "andymass/vim-matchup"
+  use "b0o/SchemaStore.nvim"
+  use "RRethy/vim-illuminate"
+  use "lvimuser/lsp-inlayhints.nvim"
+  -- use "https://git.sr.ht/~whynothugo/lsp_lines.nvim" -- virtual text
+
 
   -- Marks
   use "ThePrimeagen/harpoon"

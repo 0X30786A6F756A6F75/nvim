@@ -130,8 +130,7 @@ local mappings = {
 
   f = {
     name = "Find",
-    r = {"<cmd>Telescope git_branches<cr>", "Checkout branch"},
-    c = {"<cmd>Telescope colorscheme<cr>", "Colorscheme"},
+    b = {"<cmd>Telescope git_branches<cr>", "Checkout branch"},
     f = {
       "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
       "Find files"
@@ -139,13 +138,13 @@ local mappings = {
     t = { "<cmd>Telescope live_grep<cr>", "Find Text" },
     s = { "<cmd>Telescope grep_string<cr>", "Find String" },
     p = {"<cmd>Telescope projects<CR>", "Find Projects"},
-    b = {"<cmd>Telescope file_browser<CR>", "File Browser"},
+    c = {"<cmd>:e ~/.config/nvim/init.lua<CR>", "Find Projects"},
     m = { "<cmd>lua require('telescope').extensions.media_files.media_files()<cr>", "Media" },
     g = {"<cmd>Telescope live_grep theme=ivy<cr>", "Find Text"},
     h = {"<cmd>Telescope help_tags<cr>", "Help"},
     l = {"<cmd>Telescope resume<cr>", "Last Search"},
     M = {"<cmd>Telescope man_pages<cr>", "Man Pages"},
-    o = {"<cmd>Telescope oldfiles<cr>", "Recent File"},
+    r = {"<cmd>Telescope oldfiles<cr>", "Recent File"},
     R = {"<cmd>Telescope registers<cr>", "Registers"},
     k = {"<cmd>Telescope keymaps<cr>", "Keymaps"},
     u = {"<cmd>Telescope undo<cr>", "UndoList"},
@@ -210,9 +209,10 @@ local mappings = {
   },
 
   T = {
-    name = "Treesitter",
+    name = "Packers",
     h = {"<cmd>TSHighlightCapturesUnderCursor<cr>", "Highlight"},
-    p = {"<cmd>TSPlaygroundToggle<cr>", "Playground"}
+    p = {"<cmd>TSPlaygroundToggle<cr>", "Playground"},
+    t = {"<cmd>Trouble<cr>", "Trouble"},
   },
   m = {
     name = "Harpoon Marks",
@@ -249,9 +249,16 @@ local vmappings = {
   ["/"] = {
     '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>', "Comment"
   },
-  s = {"<esc><cmd>'<,'>SnipRun<cr>", "Run range"}
+  s = {"<esc><cmd>'<,'>SnipRun<cr>", "Run range"},
+
+  r = {
+    r = {[[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], "Replace Word"},
+    o = {[[:%s/\<<C-r><C-w>//gc<Left><Left><Left>]], "Replace Optional"},
+    y = {[[:%s/\<<C-r><C-w>/<C-r>0/g<CR>]], "Replace Clipboard"}
+  }
 }
 
 which_key.setup(setup)
 which_key.register(mappings, opts)
+which_key.register(mappings, m_opts)
 which_key.register(vmappings, vopts)
