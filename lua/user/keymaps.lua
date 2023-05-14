@@ -105,3 +105,10 @@ keymap("n", "<leader>ry", [[:%s/\<<C-r><C-w>/<C-r>0/g<CR>]], {silent = false})
 -- git fixed merge 
 -- keymap("n", "gu", "<cmd>diffget //2<CR>")
 -- keymap("n", "gu", "<cmd>diffget //3<CR>")
+
+
+-- jumping snip
+keymap("i", "<c-j>", "<cmd>lua require'luasnip'.jump(1)<CR>", opts)
+keymap("s", "<c-j>", "<cmd>lua require'luasnip'.jump(1)<CR>", opts)
+keymap("i", "<c-k>", "<cmd>lua require'luasnip'.jump(-1)<CR>", opts)
+keymap("s", "<c-k>", "<cmd>lua require'luasnip'.jump(-1)<CR>", opts)

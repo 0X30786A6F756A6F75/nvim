@@ -64,7 +64,6 @@ return packer.startup(function(use)
   -- Tabline
   use "akinsho/bufferline.nvim"
   use "fgheng/winbar.nvim"
-  use "SmiteshP/nvim-navic"
 
   -- Golang
   use "ray-x/guihua.lua"
@@ -81,12 +80,6 @@ return packer.startup(function(use)
     end,
   }
 
-  -- Terminal
-  use { "akinsho/toggleterm.nvim" }
-
-  -- Project
-  use "ahmedkhalf/project.nvim"
-
   -- Indent
   use "lukas-reineke/indent-blankline.nvim"
 
@@ -97,7 +90,7 @@ return packer.startup(function(use)
     requires = "nvim-lua/plenary.nvim",
     config = function()
       require("todo-comments").setup {}
-    end
+    end,
   }
 
   -- Colorschemes
@@ -114,30 +107,33 @@ return packer.startup(function(use)
   use "ray-x/lsp_signature.nvim"
 
   -- Completion
-  use "christianchiarulli/nvim-cmp"
+  use "hrsh7th/nvim-cmp"
   use "hrsh7th/cmp-buffer" -- buffer completions
-  -- use "hrsh7th/cmp-path" -- path completions
-  use "hrsh7th/cmp-cmdline" -- cmdline completions
-  -- use "saadparwaiz1/cmp_luasnip" -- snippet completions
-  use "hrsh7th/cmp-nvim-lsp"
-  use "hrsh7th/cmp-emoji"
+  use "hrsh7th/cmp-path" -- path completions
   use "hrsh7th/cmp-nvim-lua"
-  use "zbirenbaum/copilot-cmp"
-  -- use {
-  --   "zbirenbaum/copilot.lua",
-  --   event = { "VimEnter" },
-  --   config = function()
-  --     vim.defer_fn(function()
-  --       require "user.copilot"
-  --     end, 100)
-  --   end,
-  -- }
-  -- use { "tzachar/cmp-tabnine", commit = "1a8fd2795e4317fd564da269cc64a2fa17ee854e", run = "./install.sh" }
+  use "hrsh7th/cmp-nvim-lsp"
+  use "saadparwaiz1/cmp_luasnip" -- snippet completions
+  -- use "hrsh7th/cmp-cmdline" -- cmdline completions
+  use "hrsh7th/cmp-emoji"
+  --[[ use {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "VimEnter",
+    dependencies = {"zbirenbaum/copilot-cmp"},
+    config = function()
+      require "user.copilot"
+    end,
+  }
+  use "zbirenbaum/copilot-cmp" ]]
   use { "tzachar/cmp-tabnine", run = "./install.sh" }
 
   -- Snippet
-  use "L3MON4D3/LuaSnip" --snippet engine
-  use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
+  use {
+    "L3MON4D3/LuaSnip",
+    run = "make install_jsregexp",
+    dependencies = { "rafamadriz/friendly-snippets"}
+  }
+  use "rafamadriz/friendly-snippets"
 
   -- Java
   use "mfussenegger/nvim-jdtls"
@@ -156,7 +152,12 @@ return packer.startup(function(use)
   -- Treesitter
   use "nvim-treesitter/nvim-treesitter"
   use "nvim-treesitter/nvim-treesitter-context"
-  use {"windwp/nvim-ts-autotag", config = function() require("nvim-ts-autotag").setup() end}
+  use {
+    "windwp/nvim-ts-autotag",
+    config = function()
+      require("nvim-ts-autotag").setup()
+    end,
+  }
   use "RRethy/nvim-treesitter-textsubjects"
   use "nvim-treesitter/nvim-treesitter-textobjects"
 
@@ -181,12 +182,12 @@ return packer.startup(function(use)
   --use "pantharshit00/vim-prisma"
 
   -- multi cursor
-  use "terryma/vim-multiple-cursors"
+  -- use "terryma/vim-multiple-cursors"
 
   use "monaqa/dial.nvim" -- Increment/Decrement
 
   -- Quickfix
-  use "kevinhwang91/nvim-bqf"
+  -- use "kevinhwang91/nvim-bqf"
 
   -- motion
   -- use "jinh0/eyeliner.nvim"
@@ -195,10 +196,8 @@ return packer.startup(function(use)
   use { "iamcco/markdown-preview.nvim", run = "cd app && npm install", ft = "markdown" }
 
   -- git
-  use "f-person/git-blame.nvim"
-  use "sindrets/diffview.nvim"
-  use 'tpope/vim-rhubarb'
-  use 'lewis6991/gitsigns.nvim'
+  use {"lewis6991/gitsigns.nvim", config = function() require("gitsigns") end}
+  use 'kdheepak/lazygit.nvim'
 
   -- Utility
   use "rcarriga/nvim-notify"
@@ -216,19 +215,18 @@ return packer.startup(function(use)
   use "lvimuser/lsp-inlayhints.nvim"
   -- use "https://git.sr.ht/~whynothugo/lsp_lines.nvim" -- virtual text
 
-
   -- Marks
   use "ThePrimeagen/harpoon"
 
   -- twig
-  use "othree/html5.vim"
+  -- use "othree/html5.vim"
   -- use "lumiliet/vim-twig"
 
   -- symfony
-  use "qbbr/vim-symfony"
+  -- use "qbbr/vim-symfony"
 
   -- syntaxt highlighting
-  use "sheerun/vim-polyglot"
+  -- use "sheerun/vim-polyglot"
 
   -- Lualine
   -- use "nvim-lualine/lualine.nvim"

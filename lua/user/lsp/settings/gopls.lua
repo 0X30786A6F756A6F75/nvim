@@ -7,10 +7,10 @@ return {
 	root_dir = util.root_pattern("go.work", "go.mod", ".git"),
 	settings = {
 		gopls = {
-			usePlaceholders = true,
-			-- experimentalPostfixCompletions = false,
+			experimentalPostfixCompletions = false,
 			analyses = {
 				unusedparams = true,
+				unusedvariable = false,
 				shadow = true,
 				httpresponse = true,
 				tests = true,

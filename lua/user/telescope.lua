@@ -222,3 +222,8 @@ telescope.setup {
     },
   },
 }
+
+local h_status_ok, _ = pcall(require, "harpoon")
+if h_status_ok then
+  telescope.load_extension "harpoon"
+end

@@ -48,7 +48,7 @@ local branch = {
 
 local current_signature = function()
   if not pcall(require, "lsp_signature") then return end
-  local sig = require("lsp_signature").status_line(40)
+  local sig = require("lsp_signature").status_line(60)
   -- return "🐼" .. sig.label  .. sig.hint
   return sig.label .. "%#SLSeparator# " .. sig.hint .. "%*"
 end

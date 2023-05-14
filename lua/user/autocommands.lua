@@ -7,14 +7,6 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
   end
 })
 
-vim.api.nvim_create_autocmd({ "FileType" }, {
-  pattern = { "lir" },
-  callback = function()
-    vim.opt_local.number = true
-    vim.opt_local.relativenumber = true
-  end
-})
-
 -- Fixes Autocomment
 vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
   callback = function()
