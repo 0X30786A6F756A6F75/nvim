@@ -202,7 +202,7 @@ return packer.startup(function(use)
   -- Utility
   use "rcarriga/nvim-notify"
   use "stevearc/dressing.nvim"
-  -- use "moll/vim-bbye"
+  use "moll/vim-bbye"
   use {
     "lewis6991/impatient.nvim",
     config = function()
