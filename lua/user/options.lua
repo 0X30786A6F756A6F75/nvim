@@ -66,3 +66,7 @@ vim.filetype.add {
     conf = "dosini",
   },
 }
+
+vim.o.background = "dark" -- or "light" for light mode
+
+vim.loader.enable() -- start fast as possible
