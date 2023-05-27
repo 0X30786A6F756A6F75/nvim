@@ -1,6 +1,5 @@
 require "user.autocommands"
--- require "user.bfs"
-require "user.functions"
+require "user.themes.init"
 require "user.keymaps"
 require "user.options"
 require "user.plugins"

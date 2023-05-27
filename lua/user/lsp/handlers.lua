@@ -25,7 +25,7 @@ M.setup = function()
 
   local config = {
     -- disable virtual text
-    virtual_lines = false,
+    virtual_lines = true,
     virtual_text = false,
     -- virtual_text = {
     --   -- spacing = 7,
@@ -104,10 +104,6 @@ end
 M.on_attach = function(client, bufnr)
   lsp_keymaps(bufnr)
   attach_navic(client, bufnr)
-
-  if client.name == "tsserver" then
-    require("lsp-inlayhints").on_attach(client, bufnr)
-  end
 
   if client.name == "jdt.ls" then
     vim.lsp.codelens.refresh()

@@ -30,7 +30,7 @@ copilot.setup {
     settings = {
       advanced = {
         -- listCount = 10, -- #completions for panel
-        inlineSuggestCount = 3, -- #completions for getCompletions
+        inlineSuggestCount = 2, -- #completions for getCompletions
       },
     },
   },

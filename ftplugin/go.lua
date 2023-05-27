@@ -29,6 +29,7 @@ local mappings = {
     G = { "<cmd>GoGenerate %<Cr>", "Go Generate File" },
     c = { "<cmd>GoCmt<Cr>", "Generate Comment" },
     t = { "<cmd>lua require('dap-go').debug_test()<cr>", "Debug Test" },
+    C = {'<cmd>GoCoverage<Cr>', "Coverage "},
   },
 }
 

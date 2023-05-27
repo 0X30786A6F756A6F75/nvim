@@ -5,6 +5,7 @@ vim.cmd [[
     %SnipRun
     call feedkeys("\<esc>`.")
   endfunction
+
   function TestI()
     let b:caret = winsaveview()    
     %SnipRun
@@ -15,6 +16,7 @@ vim.cmd [[
 function M.sniprun_enable()
   vim.cmd [[
     %SnipRun
+
     augroup _sniprun
      autocmd!
      autocmd TextChanged * call Test()
@@ -59,17 +61,6 @@ function M.toggle_option(option)
   local value = not vim.api.nvim_get_option_value(option, {})
   vim.opt[option] = value
   vim.notify(option .. " set to " .. tostring(value))
-end
-
-function M.toggle_double_numbers(option) 
-  local value = vim.api.nvim_get_option_value(option, {})
-  if value == '' then
-    vim.opt[option] = "%l %r" 
-  else 
-    vim.opt[option] = "" 
-  end
-
-  -- vim.notify("double numbers set to " .. string(vim.api.nvim_get_option_value(option, {})))
 end
 
 function M.toggle_tabline()

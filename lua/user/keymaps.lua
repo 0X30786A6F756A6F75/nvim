@@ -99,7 +99,7 @@ keymap("n", "<C-f>", "<cmd>!tmux neww tmux-sessionizer<CR>", opts)
 -- replace 
 keymap("n", "<leader>rw", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], {silent = false})
 keymap("n", "<leader>rr", [[:%s/\<<C-r><C-w>//gc<Left><Left><Left>]], {silent = false})
-keymap("n", "<leader>ry", [[:%s/\<<C-r><C-w>/<C-r>0/g<CR>]], {silent = false}) 
+keymap("n", "<leader>ry", [[:%s/\<<C-r><C-w>/<C-r>0/g<CR>]], {silent = false})
 
 
 -- git fixed merge 
@@ -108,7 +108,7 @@ keymap("n", "<leader>ry", [[:%s/\<<C-r><C-w>/<C-r>0/g<CR>]], {silent = false})
 
 
 -- jumping snip
-keymap("i", "<c-j>", "<cmd>lua require'luasnip'.jump(1)<CR>", opts)
-keymap("s", "<c-j>", "<cmd>lua require'luasnip'.jump(1)<CR>", opts)
-keymap("i", "<c-k>", "<cmd>lua require'luasnip'.jump(-1)<CR>", opts)
-keymap("s", "<c-k>", "<cmd>lua require'luasnip'.jump(-1)<CR>", opts)
+keymap("i", "<c-n>", "<cmd>lua require'luasnip'.jump(1)<CR>", opts)
+keymap("s", "<c-n>", "<cmd>lua require'luasnip'.jump(1)<CR>", opts)
+keymap("i", "<c-p>", "<cmd>lua require'luasnip'.jump(-1)<CR>", opts)
+keymap("s", "<c-p>", "<cmd>lua require'luasnip'.jump(-1)<CR>", opts)

@@ -144,7 +144,7 @@ local mappings = {
 
   g = {
     name = "Git",
-    g = { "<cmd>LazyGit<cr>", "Lazygit" },
+    g = { "<cmd>lua _LAZYGIT_TOGGLE()<cr>", "Lazygit" },
     j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
     k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
     p = { "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", "Preview Hunk" },
@@ -204,13 +204,28 @@ local mappings = {
     t = { "<cmd>SnipRunToggle<cr>", "Toggle" },
     x = { "<cmd>SnipTerminate<cr>", "Terminate" },
   },
+  t = {
+    name = "Terminal",
+    ["1"] = {":1ToggleTerm<cr>", "1"},
+    ["2"] = {":2ToggleTerm<cr>", "2"},
+    ["3"] = {":3ToggleTerm<cr>", "3"},
+    ["4"] = {":4ToggleTerm<cr>", "4"},
+    n = {"<cmd>lua _NODE_TOGGLE()<cr>", "Node"},
+    h = {"<cmd>lua _HTOP_TOGGLE()<cr>", "Htop"},
+    p = {"<cmd>lua _PSQL_TOGGLE()<cr>", "Postgres"},
+    r = {"<cmd>lua _RANGER_TOGGLE()<cr>", "Ranger"},
+    m = {"<cmd>lua _MYSQL_TOGGLE()<cr>", "Mysql"},
+    f = {"<cmd>ToggleTerm direction=float<cr>", "Float"},
+    r = {"<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal"},
+    v = {"<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical"}
+  },
 
   T = {
     name = "Packers",
     h = { "<cmd>TSHighlightCapturesUnderCursor<cr>", "Highlight" },
     p = { "<cmd>TSPlaygroundToggle<cr>", "Playground" },
-    t = { "<cmd>Trouble<cr>", "Trouble" },
   },
+
   m = {
     name = "Harpoon Marks",
     m = { "<cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>", "Menu" },
@@ -231,6 +246,10 @@ local mappings = {
     r = { [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], "Replace Word" },
     o = { [[:%s/\<<C-r><C-w>//gc<Left><Left><Left>]], "Replace Optional" },
     y = { [[:%s/\<<C-r><C-w>/<C-r>0/g<CR>]], "Replace Clipboard" },
+    s = {"<cmd>lua require('spectre').open()<cr>", "Open Spectre"},
+    v = {"<cmd>lua require('spectre').open_visual({select_word=true})<cr>", "Select current word"},
+    w = {"<cmd>lua require('spectre').open_visual()<cr>", "Search current word"},
+    f = {"<cmd>lua require('spectre').open_file_search({select_word=true})<cr>", "Search on current file"},
   },
 }
 

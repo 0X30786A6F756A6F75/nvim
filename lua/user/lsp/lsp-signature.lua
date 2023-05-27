@@ -22,7 +22,7 @@ local cfg = {
   floating_window_above_cur_line = false, -- try to place the floating above the current line when possible Note:
   -- will set to true when fully tested, set to false will use whichever side has more space
   -- this setting will be helpful if you do not want the PUM and floating win overlap
-  fix_pos = false, -- set to true, the floating window will not auto-close until finish all parameters
+  fix_pos = true, -- set to true, the floating window will not auto-close until finish all parameters
   hint_enable = true, -- virtual hint enable
   hint_prefix = icons.misc.Squirrel .. " ", -- Panda for parameter
   hint_scheme = "Comment",
@@ -35,7 +35,7 @@ local cfg = {
     border = "rounded", -- double, rounded, single, shadow, none
   },
 
-  always_trigger = false, -- sometime show signature on new line or in middle of parameter can be confusing, set it to false for #58
+  always_trigger = true, -- sometime show signature on new line or in middle of parameter can be confusing, set it to false for #58
 
   auto_close_after = nil, -- autoclose signature float win after x sec, disabled if nil.
   extra_trigger_chars = {}, -- Array of extra characters that will trigger signature completion, e.g., {"(", ","}
