@@ -1,5 +1,6 @@
 require "user.autocommands"
 require "user.themes.init"
 require "user.keymaps"
+require "user.treesitter"
 require "user.options"
 require "user.plugins"

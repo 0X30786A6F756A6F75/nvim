@@ -2,8 +2,10 @@ local status_ok, schemastore = pcall(require, "schemastore")
 if not status_ok then
   return
 end
+local home = os.getenv "HOME"
 
 return {
+  cmd = {home .. "/.local/share/nvim/mason/packages/json-lsp/node_modules/vscode-langservers-extracted/bin/vscode-json-languageserver", "--stdio"},
   init_options = {
     provideFormatter = false,
   },
@@ -12,7 +14,8 @@ return {
       schemas = schemastore.json.schemas(),
     },
   },
-  setup = {
+  filetypes = { "json" },
+  --[[ setup = {
     commands = {
         Format = {
         function()
@@ -20,5 +23,5 @@ return {
         end,
       },
     },
-  },
+  }, ]]
 }

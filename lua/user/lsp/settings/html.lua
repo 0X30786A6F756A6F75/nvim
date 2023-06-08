@@ -7,9 +7,10 @@ return {
   cmd = {home .. "/.local/share/nvim/mason/packages/html-lsp/node_modules/.bin/vscode-html-language-server", "--stdio"},
   filetypes = {
     "html",
-    "gohtmltmpl",
-    "twig",
-    "blade",
+    -- "gohtml",
+    -- "gohtmltmpl",
+    -- "twig",
+    -- "blade",
     -- "php",
   },
   capabilities = capabilities,

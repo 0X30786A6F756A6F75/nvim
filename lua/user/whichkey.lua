@@ -12,9 +12,9 @@ local setup = {
       suggestions = 20, -- how many suggestions should be shown in the list?
     },
     presets = {
-      operators = true, -- adds help for operators like d, y, ... and registers them for motion / text object completion
+      operators = false, -- adds help for operators like d, y, ... and registers them for motion / text object completion
       motions = false, -- adds help for motions
-      text_objects = false, -- help for text objects triggered after entering an operator
+      text_objects = true, -- help for text objects triggered after entering an operator
       windows = true, -- default bindings on <c-w>
       nav = true, -- misc bindings to work with windows
       z = true, -- bindings for folds, spelling and others prefixed with z
@@ -77,7 +77,7 @@ local mappings = {
     c = { "<cmd>PackerCompile<cr>", "Compile" },
     i = { "<cmd>PackerInstall<cr>", "Install" },
     s = { "<cmd>PackerSync<cr>", "Sync" },
-    S = { "<cmd>PackerStatus<cr>", "Status" },
+    S = { "PackerStatus", "Status" },
     u = { "<cmd>PackerUpdate<cr>", "Update" },
   },
 
@@ -246,10 +246,10 @@ local mappings = {
     r = { [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], "Replace Word" },
     o = { [[:%s/\<<C-r><C-w>//gc<Left><Left><Left>]], "Replace Optional" },
     y = { [[:%s/\<<C-r><C-w>/<C-r>0/g<CR>]], "Replace Clipboard" },
-    s = {"<cmd>lua require('spectre').open()<cr>", "Open Spectre"},
-    v = {"<cmd>lua require('spectre').open_visual({select_word=true})<cr>", "Select current word"},
-    w = {"<cmd>lua require('spectre').open_visual()<cr>", "Search current word"},
-    f = {"<cmd>lua require('spectre').open_file_search({select_word=true})<cr>", "Search on current file"},
+    s = {"<cmd>lua require('spectre').open()<CR>", "Open Spectre"},
+    v = {"<cmd>lua require('spectre').open_visual({select_word=true})<CR>", "Select current word Spectre"},
+    w = {"<cmd>lua require('spectre').open_visual()<CR>", "Search current word Spectre"},
+    f = {"<cmd>lua require('spectre').open_file_search({select_word=true})<CR>", "Search on current file Spectre"},
   },
 }
 
@@ -274,6 +274,7 @@ local vmappings = {
     y = { [[:%s/\<<C-r><C-w>/<C-r>0/g<CR>]], "Replace Clipboard" },
   },
 }
+
 
 which_key.setup(setup)
 which_key.register(mappings, opts)

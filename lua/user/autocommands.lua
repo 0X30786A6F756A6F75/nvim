@@ -22,10 +22,3 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   end,
   group = format_sync_grp
 })
-
-vim.api.nvim_create_autocmd({ "BufRead" }, {
-  callback = function()
-    -- go imports
-    vim.cmd ("TSEnable highlight")
-  end,
-})

@@ -30,7 +30,7 @@ telescope.setup {
       "%.ttf",
       "%.webp",
       ".dart_tool/",
-      ".github/",
+      -- ".github/",
       ".gradle/",
       ".vscode/",
       "__pycache__/",

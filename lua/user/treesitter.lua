@@ -9,21 +9,22 @@ end
 configs.setup {
   ensure_installed = "all", -- one of "all" or a list of languages
   sync_install = true, -- install languages synchronously (only applied to `ensure_installed`)
+  ignore_install = { "" }, -- List of parsers to ignore installing
   matchup = {
     enable = true, -- mandatory, false will disable the whole extension
-    disable_virtual_text = true,
+    -- disable_virtual_text = true,
     include_match_words = true
   },
   highlight = {
     enable = true, -- false will disable the whole extension
     -- disable = {},
-    disable = function(lang, buf)
+    --[[ disable = function(lang, buf)
         local max_filesize = 100 * 1024 -- 100 KB
         local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
         if ok and stats and stats.size > max_filesize then
             return true
         end
-    end,
+    end, ]]
     additional_vim_regex_highlight = true
   },
   autopairs = {

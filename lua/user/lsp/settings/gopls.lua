@@ -1,19 +1,18 @@
 local util = require "lspconfig/util"
 
+local home = os.getenv "HOME"
 return {
-	cmd = {'gopls'},
+	-- cmd = {'gopls'},
+	cmd = {home .. "/.local/share/nvim/mason/packages/gopls/gopls"},
 	-- for postfix snippets and analyzers
-	filetypes = {"go", "gomod", "gowork", "gotmpl", "tmpl" },
+	filetypes = {"go", "gomod", "gowork" },
 	root_dir = util.root_pattern("go.work", "go.mod", ".git"),
 	settings = {
 		gopls = {
-			experimentalPostfixCompletions = false,
 			analyses = {
-				unusedparams = true,
-				unusedvariable = false,
+				-- unusedparams = true,
 				shadow = true,
 				httpresponse = true,
-				tests = true,
 		 },
 		 staticcheck = true,
 		},

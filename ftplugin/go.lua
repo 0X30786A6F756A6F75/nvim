@@ -18,18 +18,19 @@ local opts = {
 }
 
 local mappings = {
-  C = {
+  G = {
     name = "Go",
-    i = { "<cmd>GoInstallDeps<Cr>", "Install Go Dependencies" },
-    f = { "<cmd>GoMod tidy<cr>", "Tidy" },
-    a = { "<cmd>GoTestAdd<Cr>", "Add Test" },
-    A = { "<cmd>GoTestsAll<Cr>", "Add All Tests" },
-    e = { "<cmd>GoTestsExp<Cr>", "Add Exported Tests" },
-    g = { "<cmd>GoGenerate<Cr>", "Go Generate" },
-    G = { "<cmd>GoGenerate %<Cr>", "Go Generate File" },
-    c = { "<cmd>GoCmt<Cr>", "Generate Comment" },
-    t = { "<cmd>lua require('dap-go').debug_test()<cr>", "Debug Test" },
-    C = {'<cmd>GoCoverage<Cr>', "Coverage "},
+    i = { "<cmd>GoInstallDeps<CR>", "Install Go Dependencies" },
+    f = { "<cmd>GoMod tidy<CR>", "Tidy" },
+    a = { "<cmd>GoTestAdd<CR>", "Add Test" },
+    A = { "<cmd>GoTestsAll<CR>", "Add All Tests" },
+    c = { "<cmd>GoCmt<CR>", "Generate Comment" },
+    j = { "<cmd>GoAddTag json<CR>", "Add json struct tags" },
+    y = { "<cmd>GoAddTag yaml<CR>", "Add yaml struct tags" },
+    -- t = { "<cmd>lua require('dap-go').debug_test()<cr>", "Debug Test" },
+    C = {'<cmd>GoCoverage<CR>', "Coverage "},
+    e = {'<cmd>GoIfErr<CR>', "Check error"},
+    k = {'<cmd>GoDoc<CR>', "Documentation"},
   },
 }
 

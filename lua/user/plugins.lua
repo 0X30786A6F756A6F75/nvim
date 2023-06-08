@@ -123,22 +123,18 @@ return packer.startup(function(use)
   use { "folke/tokyonight.nvim" }
   -- use {'ray-x/starry.nvim'}
 
-  -- Color detect
-  -- use { "nvim-colortils/colortils.nvim", pattern = "css, scs, stylus" }
-
   -- LSP
   use {
     "neovim/nvim-lspconfig",
     config = get_setup "lsp",
   }
-
   use "williamboman/mason-lspconfig.nvim"
   use "jose-elias-alvarez/null-ls.nvim"
   use "ray-x/lsp_signature.nvim"
   use "williamboman/mason.nvim"
 
   -- Completion
-  use { "hrsh7th/nvim-cmp", config = get_setup "cmp"}
+  use { "hrsh7th/nvim-cmp", config = get_setup "cmp" }
   use "hrsh7th/cmp-buffer"
   use { "hrsh7th/cmp-path" }
   use { "hrsh7th/cmp-nvim-lua" }
@@ -161,19 +157,17 @@ return packer.startup(function(use)
     requires = { "zbirenbaum/copilot-cmp" },
     config = get_setup "copilot",
   }
+  -- Colorizer
+  use {"nvim-colortils/colortils.nvim", require= "NvChad/nvim-colorizer.lua", config = get_setup "colortils", ft="css"}
+  use {"NvChad/nvim-colorizer.lua", ft="css"}
+
 
   -- Snippet
-  use {
-    "L3MON4D3/LuaSnip",
-    run = "make install_jsregexp",
-    requires = { "rafamadriz/friendly-snippets" },
-  }
+  use {"L3MON4D3/LuaSnip", run = "make install_jsregexp", require="rafamadriz/friendly-snippets"}
+  use "rafamadriz/friendly-snippets"
 
   -- Java
-  use {
-    "mfussenegger/nvim-jdtls",
-    ft = { "java" },
-  }
+  use { "mfussenegger/nvim-jdtls", ft = { "java" }}
 
   -- Fuzzy Finder/Telescope
   use {
@@ -183,18 +177,13 @@ return packer.startup(function(use)
   }
 
   -- Treesitter
-  use {
-    "nvim-treesitter/nvim-treesitter",
-    "JoosepAlviste/nvim-ts-context-commentstring",
-    "nvim-treesitter/nvim-treesitter-context",
-    "nvim-treesitter/nvim-treesitter-textobjects",
-    config = get_setup "treesitter",
-    run =  'TSUpdate',
-  }
-  use {
-    "windwp/nvim-ts-autotag",
-    event = "VimEnter",
-  }
+  use "nvim-treesitter/nvim-treesitter"
+  use "JoosepAlviste/nvim-ts-context-commentstring"
+  use "nvim-treesitter/nvim-treesitter-textobjects"
+  use { "nvim-treesitter/nvim-treesitter-context", config = get_setup "context" }
+
+  use { "andymass/vim-matchup", config = get_setup "matchup" }
+  use { "windwp/nvim-ts-autotag", event = "VimEnter" }
 
   -- Surrond
   use { "kylechui/nvim-surround", config = get_setup "surround" }
@@ -203,9 +192,9 @@ return packer.startup(function(use)
   use {
     "mfussenegger/nvim-dap",
     requires = {
-      -- { "theHamsta/nvim-dap-virtual-text" },
-      -- { "rcarriga/nvim-dap-ui" },
-      -- { "ravenxrz/DAPInstall.nvim" },
+      { "theHamsta/nvim-dap-virtual-text" },
+      { "rcarriga/nvim-dap-ui" },
+      { "ravenxrz/DAPInstall.nvim" },
       {
         "leoluz/nvim-dap-go",
         ft = "go",
@@ -218,13 +207,18 @@ return packer.startup(function(use)
   }
 
   -- View
-  --[[ use {
+  use {
     "iamcco/markdown-preview.nvim",
     run = "cd app && npm install",
     ft = "markdown",
     cmd = "MarkdownPreview",
-  } ]]
-  use {"ellisonleao/glow.nvim", config = function() require("glow").setup() end}
+  }
+  use {
+    "ellisonleao/glow.nvim",
+    config = function()
+      require("glow").setup()
+    end,
+  }
 
   -- git
   use {
@@ -232,26 +226,25 @@ return packer.startup(function(use)
     cmd = "Gitsigns",
     config = get_setup "gitsigns",
   }
-  -- use {"kdheepRangerak/lazygit.nvim", cmd="LazyGit"}
 
   -- Utility
+  use { "monaqa/dial.nvim", config = get_setup "dial" }
   use { "rcarriga/nvim-notify", config = get_setup "notify" }
   use { "stevearc/dressing.nvim", config = get_setup "dressing" }
   use "moll/vim-bbye"
-  use "andymass/vim-matchup"
   use { "b0o/SchemaStore.nvim" }
   use { "RRethy/vim-illuminate", config = get_setup "illuminate" }
-  use "lewis6991/impatient.nvim"
+  use { "lewis6991/impatient.nvim", config = get_setup "impatient" }
 
   -- twig
-  use { "othree/html5.vim", ft = "twig, html" }
+  -- use { "othree/html5.vim", ft = "html" }
   use { "lumiliet/vim-twig", ft = "twig" }
 
   -- symfony
   use { "qbbr/vim-symfony", ft = "php" }
 
   -- syntaxt highlighting
-  use "sheerun/vim-polyglot"
+  use { "sheerun/vim-polyglot" }
 
   -- Terminal
   use { "akinsho/toggleterm.nvim", config = get_setup "toggleterm" }
@@ -261,10 +254,10 @@ return packer.startup(function(use)
   use { "christianchiarulli/lualine.nvim", config = get_setup "lualine" }
 
   -- Replace
-  use { "nvim-pack/nvim-spectre", config = get_setup "spectre", cmd = "Spectre" }
+  use { "nvim-pack/nvim-spectre", config = get_setup "spectre" }
 
   -- Motion
-  use { "phaazon/hop.nvim", config = get_setup "hop"}
+  -- use { "phaazon/hop.nvim", config = get_setup "hop" }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

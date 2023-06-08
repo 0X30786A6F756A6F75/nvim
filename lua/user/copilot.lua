@@ -25,7 +25,7 @@ copilot.setup {
 
   ft_disable = { "markdown" },
   -- plugin_manager_path = vim.fn.stdpath "data" .. "/site/pack/packer",
-  server_opts_overrides = {
+  --[[ server_opts_overrides = {
     -- trace = "verbose",
     settings = {
       advanced = {
@@ -33,7 +33,7 @@ copilot.setup {
         inlineSuggestCount = 2, -- #completions for getCompletions
       },
     },
-  },
+  }, ]]
 }
 
 cmp_copilot.setup()

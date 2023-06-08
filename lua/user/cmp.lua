@@ -16,8 +16,8 @@ end
 local buffer_fts = {
   "markdown",
   "toml",
-  "yaml",
-  "json",
+  -- "yaml",
+  -- "json",
 }
 
 local function contains(t, value)

@@ -27,6 +27,7 @@ local servers = {
   "rust_analyzer",
   "taplo",
   "intelephense",
+  "eslint",
   -- "phpactor"
   "gopls"
 }
@@ -80,6 +81,11 @@ for _, server in pairs(servers) do
     opts = vim.tbl_deep_extend("force", tailwindcss, opts)
   end
 
+  if server == "eslint" then
+    local eslint = require("user.lsp.settings.eslint")
+    opts = vim.tbl_deep_extend("force", eslint, opts)
+  end
+
   if server == "html" then
     local html = require("user.lsp.settings.html")
     opts = vim.tbl_deep_extend("force", html, opts)
@@ -99,11 +105,6 @@ for _, server in pairs(servers) do
   --   opts = vim.tbl_deep_extend("force", phpactor_opts, opts)
   -- end
 
-  if server == "psalm" then
-    local psalm_opts = require("user.lsp.settings.psalm")
-    opts = vim.tbl_deep_extend("force", psalm_opts, opts)
-  end
-
   if server == "tsserver" then
     local tsserver_opts = require "user.lsp.settings.tsserver"
     opts = vim.tbl_deep_extend("force", tsserver_opts, opts)
@@ -114,11 +115,6 @@ for _, server in pairs(servers) do
     opts = vim.tbl_deep_extend("force", pyright_opts, opts)
   end
 
-  if server == "solc" then
-    local solc_opts = require("user.lsp.settings.solc")
-    opts = vim.tbl_deep_extend("force", solc_opts, opts)
-  end
-
   if server == "emmet_ls" then
     local emmet_ls_opts = require("user.lsp.settings.emmet_ls")
     opts = vim.tbl_deep_extend("force", emmet_ls_opts, opts)
@@ -126,7 +122,8 @@ for _, server in pairs(servers) do
 
   if server == "jdtls" then
     local jdts_opts = require("user.lsp.settings.jdtls")
-    opts = vim.tbl_deep_extend("force", jdts_opts, opts)
+    -- opts = vim.tbl_deep_extend("force", jdts_opts, opts)
+    goto continue
   end
 
   if server == "rust_analyzer" then

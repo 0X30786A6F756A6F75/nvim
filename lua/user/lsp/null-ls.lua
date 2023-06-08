@@ -13,22 +13,21 @@ local diagnostics = null_ls.builtins.diagnostics
 null_ls.setup {
   debug = false,
   sources = {
-    formatting.prettier.with {
+    --[[ formatting.prettier.with {
       extra_filetypes = { "toml", "solidity" },
       extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
-    },
+    }, ]]
     -- formatting.black.with { extra_args = { "--fast" } },
+    formatting.eslint,
     formatting.stylua,
     formatting.shfmt,
     formatting.google_java_format,
-    formatting.goimports_reviser,
-    -- diagnostics.flake8,
     diagnostics.shellcheck,
-
+    -- diagnostics.twigcs,
   },
 }
 
-local unwrap = {
+--[[ local unwrap = {
   method = null_ls.methods.DIAGNOSTICS,
   filetypes = { "rust" },
   generator = {
@@ -56,4 +55,4 @@ local unwrap = {
   },
 }
 
-null_ls.register(unwrap)
+null_ls.register(unwrap) ]]
