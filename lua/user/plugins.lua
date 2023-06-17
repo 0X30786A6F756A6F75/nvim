@@ -146,7 +146,6 @@ return packer.startup(function(use)
   use {
     "tzachar/cmp-tabnine",
     run = "./install.sh",
-    event = "VimEnter",
     config = get_setup "tabnine",
   }
 
@@ -242,6 +241,11 @@ return packer.startup(function(use)
 
   -- symfony
   use { "qbbr/vim-symfony", ft = "php" }
+  -- haskell
+  use {
+    'mrcjkb/haskell-tools.nvim',
+    branch = '1.x.x', -- recommended
+  }
 
   -- syntaxt highlighting
   use { "sheerun/vim-polyglot" }
@@ -257,7 +261,7 @@ return packer.startup(function(use)
   use { "nvim-pack/nvim-spectre", config = get_setup "spectre" }
 
   -- Motion
-  -- use { "phaazon/hop.nvim", config = get_setup "hop" }
+  use { "phaazon/hop.nvim", config = get_setup "hop" }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

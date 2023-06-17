@@ -10,7 +10,7 @@ return {
 	settings = {
 		gopls = {
 			analyses = {
-				-- unusedparams = true,
+				unusedparams = true,
 				shadow = true,
 				httpresponse = true,
 		 },
