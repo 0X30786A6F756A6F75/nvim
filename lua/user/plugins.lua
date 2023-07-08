@@ -143,11 +143,11 @@ return packer.startup(function(use)
   use { "hrsh7th/cmp-emoji" }
   use { "hrsh7th/cmp-cmdline" }
 
-  use {
+  --[[ use {
     "tzachar/cmp-tabnine",
     run = "./install.sh",
     config = get_setup "tabnine",
-  }
+  } ]]
 
   use {
     "zbirenbaum/copilot.lua",
@@ -261,7 +261,7 @@ return packer.startup(function(use)
   use { "nvim-pack/nvim-spectre", config = get_setup "spectre" }
 
   -- Motion
-  use { "phaazon/hop.nvim", config = get_setup "hop" }
+  -- use { "phaazon/hop.nvim", config = get_setup "hop" }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
