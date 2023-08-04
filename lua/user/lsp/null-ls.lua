@@ -18,11 +18,11 @@ null_ls.setup {
       extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
     }, ]]
     -- formatting.black.with { extra_args = { "--fast" } },
-    formatting.eslint,
+    --[[ formatting.eslint,
     formatting.stylua,
     formatting.shfmt,
     formatting.google_java_format,
-    diagnostics.shellcheck,
+    diagnostics.shellcheck, ]]
     -- diagnostics.twigcs,
   },
 }

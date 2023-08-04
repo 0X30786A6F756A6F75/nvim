@@ -5,9 +5,9 @@ end
 local home = os.getenv "HOME"
 
 return {
-  cmd = {home .. "/.local/share/nvim/mason/packages/json-lsp/node_modules/vscode-langservers-extracted/bin/vscode-json-languageserver", "--stdio"},
+  cmd = {home .. "/.local/share/nvim/mason/packages/json-lsp/node_modules/vscode-langservers-extracted/bin/vscode-json-language-server", "--stdio"},
   init_options = {
-    provideFormatter = false,
+    provideFormatter = true,
   },
   settings = {
     json = {

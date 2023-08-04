@@ -31,6 +31,7 @@ local mappings = {
     C = {'<cmd>GoCoverage<CR>', "Coverage "},
     e = {'<cmd>GoIfErr<CR>', "Check error"},
     k = {'<cmd>GoDoc<CR>', "Documentation"},
+    t = {'<cmd>GoTestFile .<CR>', "GoTestFile"},
   },
 }
 

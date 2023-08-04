@@ -1,5 +1,4 @@
 local util = require "lspconfig/util"
-
 local home = os.getenv "HOME"
 return {
 	-- cmd = {'gopls'},

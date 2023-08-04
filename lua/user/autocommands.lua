@@ -6,10 +6,11 @@ vim.api.nvim_create_autocmd({ "TextYankPost" }, {
 })
 
 -- autosave, autoformat
-vim.api.nvim_create_autocmd({ "FocusLost" }, {
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+  pattern = { "*.go", "*.php" },
   callback = function()
-    -- vim.lsp.buf.format { async = true }
-    vim.cmd "silent! w"
+    vim.cmd "silent! vim.lsp.buf.format()"
+    -- vim.cmd "silent! w"
   end
 })
 
@@ -22,3 +23,10 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   end,
   group = format_sync_grp
 })
+
+vim.api.nvim_create_user_command("GoMod", function()
+  vim.cmd([[ GoModTidy ]])
+  vim.cmd([[ LspRestart ]])
+end, {})
+
+-- nvim_create_user_command('GoModTidy', go_mod_tidy, {})

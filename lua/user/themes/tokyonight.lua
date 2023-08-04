@@ -9,6 +9,7 @@ tokyonight.setup {
   styles = {
     comments = { italic = true },
     keywords = { italic = true },
+    underline = true,
     functions = {},
     variables = {},
     -- Background styles. Can be "dark", "transparent" or "normal"

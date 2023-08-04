@@ -104,11 +104,10 @@ local function lsp_keymaps(bufnr)
 
   vim.api.nvim_buf_set_keymap(bufnr, "n", "[d", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', opts)
-
-  vim.cmd [[ command! Format execute 'lua vim.lsp.buf.format({ async = true })' ]]
 end
 
 M.on_attach = function(client, bufnr)
+  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
   lsp_keymaps(bufnr)
   attach_navic(client, bufnr)
 

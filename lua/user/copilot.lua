@@ -21,11 +21,11 @@ copilot.setup {
   panel = {
     enabled = true,
   },
-  -- suggestion = { enabled = true },
+  suggestion = { enabled = true },
   ft_disable = { "markdown" },
   -- plugin_manager_path = vim.fn.stdpath "data" .. "/site/pack/packer",
   server_opts_overrides = {
-    -- trace = "verbose",
+    trace = "verbose",
     settings = {
       advanced = {
         listCount = 10, -- #completions for panel

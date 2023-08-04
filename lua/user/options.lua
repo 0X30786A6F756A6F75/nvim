@@ -24,8 +24,8 @@ local options = {
   updatetime = 300, -- faster completion (4000ms default)
   writebackup = false, -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
   expandtab = true, -- convert tabs to spaces
-  shiftwidth = 2, -- the number of spaces inserted for each indentation
-  tabstop = 2, -- insert 2 spaces for a tab
+  shiftwidth = 4, -- the number of spaces inserted for each indentation
+  tabstop = 4, -- insert 2 spaces for a tab
   cursorline = true, -- highlight the current line
   number = true, -- set numbered lines
   laststatus = 3,
@@ -77,3 +77,6 @@ vim.g.italic_comments = true               -- italic comments(Default: true)
 vim.g.italic_keywords = true               -- italic keywords(Default: true)
 vim.g.italic_functions = true              -- italic functions(Default: false)
 vim.g.italic_variables = true              -- italic variables(Default: false)
+
+vim.lsp.set_log_level("debug")
+
