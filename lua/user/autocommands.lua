@@ -14,6 +14,16 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   end
 })
 
+-- latex auto compile when save using pdflatex
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+  pattern = { "*.tex" },
+  callback = function()
+    vim.cmd "silent! w"
+    vim.cmd "silent! !pdflatex %"
+  end
+})
+
+
 local format_sync_grp = vim.api.nvim_create_augroup("GoFormat", {})
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   pattern = { "*.go" },
@@ -25,6 +35,7 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 })
 
 vim.api.nvim_create_user_command("GoMod", function()
+  vim.cmd([[ GoGet ]])
   vim.cmd([[ GoModTidy ]])
   vim.cmd([[ LspRestart ]])
 end, {})

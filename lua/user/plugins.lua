@@ -113,15 +113,9 @@ return packer.startup(function(use)
 
   -- Keybinds
   use { "folke/which-key.nvim", config = get_setup "whichkey" }
-  --[[ use {
-    "folke/todo-comments.nvim",
-    cmd = "TodoLocList",
-    config = get_setup "todo",
-  } ]]
 
   -- Colorschemes
   use { "folke/tokyonight.nvim" }
-  -- use {'ray-x/starry.nvim'}
 
   -- LSP
   use {
@@ -174,6 +168,7 @@ return packer.startup(function(use)
     requires = "ThePrimeagen/harpoon",
     config = get_setup "telescope",
   }
+ use {"folke/trouble.nvim", config = get_setup "trouble"}
 
   -- Treesitter
   use "nvim-treesitter/nvim-treesitter"
@@ -241,11 +236,6 @@ return packer.startup(function(use)
 
   -- symfony
   use { "qbbr/vim-symfony", ft = "php" }
-  -- haskell
-  use {
-    'mrcjkb/haskell-tools.nvim',
-    branch = '1.x.x', -- recommended
-  }
 
   -- syntaxt highlighting
   use { "sheerun/vim-polyglot" }
@@ -254,14 +244,13 @@ return packer.startup(function(use)
   use { "akinsho/toggleterm.nvim", config = get_setup "toggleterm" }
 
   -- Lualine
-  -- use "nvim-lualine/lualine.nvim"
   use { "christianchiarulli/lualine.nvim", config = get_setup "lualine" }
 
   -- Replace
   use { "nvim-pack/nvim-spectre", config = get_setup "spectre" }
 
-  -- Motion
-  -- use { "phaazon/hop.nvim", config = get_setup "hop" }
+  -- Latex
+  use { "kdheepak/cmp-latex-symbols" }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

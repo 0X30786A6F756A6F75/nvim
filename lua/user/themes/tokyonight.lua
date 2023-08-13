@@ -4,17 +4,14 @@ if not status_ok then return end
 tokyonight.setup {
   style = "night",
   light_style = "light",
-  transparent = false, -- Enable this to disable setting the background color
+  transparent = true, -- Enable this to disable setting the background color
   terminal_colors = true, -- Configure the colors used when opening a `:terminal` in Neovim
   styles = {
-    comments = { italic = true },
+    -- comments = { italic = true, bg = "#24283b", fg = "#5B6268" },
+    comments = { italic = true},
     keywords = { italic = true },
-    underline = true,
-    functions = {},
-    variables = {},
-    -- Background styles. Can be "dark", "transparent" or "normal"
-    sidebars = "normal", -- style for sidebars, see below
-    floats = "normal", -- style for floating windows
+    sidebars = "normal",
+    floats = "normal",
   },
   sidebars = { "qf", "help" }, -- Set a darker background on sidebar-like windows. For example: `["qf", "vista_kind", "terminal", "packer"]`
   day_brightness = 1, -- Adjusts the brightness of the colors of the **Day** style. Number between 0 and 1, from dull to vibrant colors
