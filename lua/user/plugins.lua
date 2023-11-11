@@ -109,7 +109,7 @@ return packer.startup(function(use)
   use "dstein64/vim-startuptime"
 
   -- Indent
-  use { "lukas-reineke/indent-blankline.nvim", config = get_setup "indentline" }
+  -- use { "lukas-reineke/indent-blankline.nvim", config = get_setup "indentline" }
 
   -- Keybinds
   use { "folke/which-key.nvim", config = get_setup "whichkey" }

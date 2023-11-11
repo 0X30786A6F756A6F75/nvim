@@ -12,8 +12,12 @@ return {
 				unusedparams = true,
 				shadow = true,
 				httpresponse = true,
-		 },
-		 staticcheck = true,
+			},
+			completionDocumentation = true,
+			-- Placeholder
+			usePlaceholders = true,
+			staticcheck = true,
+			gofumpt = true,
 		},
 	},
 }

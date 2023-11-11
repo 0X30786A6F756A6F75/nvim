@@ -20,18 +20,12 @@ copilot.setup {
   },
   panel = {
     enabled = true,
+    auto_refresh = true,
   },
-  suggestion = { enabled = true },
-  ft_disable = { "markdown" },
-  plugin_manager_path = vim.fn.stdpath "data" .. "/site/pack/packer",
-  server_opts_overrides = {
-    trace = "verbose",
-    settings = {
-      advanced = {
-        listCount = 10, -- #completions for panel
-        inlineSuggestCount = 2, -- #completions for getCompletions
-      },
-    },
+  suggestion = {
+    enabled = false,
+    auto_trigger = true,
+    accept = false
   },
 }
 
