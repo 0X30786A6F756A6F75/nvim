@@ -123,7 +123,10 @@ return packer.startup(function(use)
     config = get_setup "lsp",
   }
   use "williamboman/mason-lspconfig.nvim"
-  use "jose-elias-alvarez/null-ls.nvim"
+  use {
+      "jose-elias-alvarez/null-ls.nvim",
+      requires = { "nvim-lua/plenary.nvim" }
+  }
   use "ray-x/lsp_signature.nvim"
   use "williamboman/mason.nvim"
 

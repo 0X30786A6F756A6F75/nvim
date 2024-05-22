@@ -7,7 +7,7 @@ vim.api.nvim_create_autocmd({ "TextYankPost" }, {
 
 -- autosave, autoformat
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-  pattern = { "*.go", "*.php" },
+  pattern = { "*.go", "*.php", "python" },
   callback = function()
     vim.cmd "silent! vim.lsp.buf.format()"
     -- vim.cmd "silent! w"

@@ -38,16 +38,14 @@ local options = {
   wrap = false, -- display lines as one long line
   scrolloff = 8, -- is one of my fav
   sidescrolloff = 8,
-  guifont = "Fira Code:h16:w40:b", -- the font used in graphical neovim applications
+  guifont = "Hack Mono Font:h18:w45:b", -- the font used in graphical neovim applications
   autoindent = true,
   breakindent = true,
-  ai = true, -- autoident
-  si = true, -- smartindent
   backspace = "start,eol,indent", -- allow backspacing over everything in insert mode
   smarttab = true, -- insert indents automatically
   splitkeep = "screen", -- keep cursor in others screen or following screen focused
   spelllang = "en_us",
-  -- spell = true,
+  spell = false,
 }
 
 for key, value in pairs(options) do
@@ -79,4 +77,3 @@ vim.g.italic_functions = true              -- italic functions(Default: false)
 vim.g.italic_variables = true              -- italic variables(Default: false)
 
 vim.lsp.set_log_level("debug")
-

@@ -1,5 +1,6 @@
 local util = require "lspconfig/util"
 local home = os.getenv "HOME"
+
 return {
 	-- cmd = {'gopls'},
 	cmd = {home .. "/.local/share/nvim/mason/packages/gopls/gopls"},
