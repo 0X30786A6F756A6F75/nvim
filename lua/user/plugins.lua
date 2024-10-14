@@ -146,13 +146,13 @@ return packer.startup(function(use)
     config = get_setup "tabnine",
   } ]]
 
-  use {
-    "zbirenbaum/copilot.lua",
-    cmd = "Copilot",
-    event = "VimEnter",
-    requires = { "zbirenbaum/copilot-cmp" },
-    config = get_setup "copilot",
-  }
+  -- use {
+  --   "zbirenbaum/copilot.lua",
+  --   cmd = "Copilot",
+  --   event = "VimEnter",
+  --   requires = { "zbirenbaum/copilot-cmp" },
+  --   config = get_setup "copilot",
+  -- }
   -- Colorizer
   use {"nvim-colortils/colortils.nvim", require= "NvChad/nvim-colorizer.lua", config = get_setup "colortils", ft="css"}
   use {"NvChad/nvim-colorizer.lua", ft="css"}

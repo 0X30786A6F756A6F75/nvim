@@ -19,7 +19,7 @@ local servers = {
   "jsonls",
   "solc",
   "tflint",
-  "tsserver",
+  "ts_ls",
   "pyright",
   "yamlls",
   "bashls",
@@ -105,7 +105,7 @@ for _, server in pairs(servers) do
   --   opts = vim.tbl_deep_extend("force", phpactor_opts, opts)
   -- end
 
-  if server == "tsserver" then
+  if server == "ts_ls" then
     local tsserver_opts = require "user.lsp.settings.tsserver"
     opts = vim.tbl_deep_extend("force", tsserver_opts, opts)
   end

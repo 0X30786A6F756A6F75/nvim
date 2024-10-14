@@ -10,7 +10,7 @@ return {
     root_dir = { "composer.json", ".git" },
   },
   init_options = {
-    licenseKey = {home .. "/intelephense/licence.txt"}
+    licenseKey = {home .. "/.intelephense/licence.txt"}
   },
   settings = {
     intelephense = {
