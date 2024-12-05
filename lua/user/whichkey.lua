@@ -212,18 +212,11 @@ local vopts = {
   nowait = true, -- use `nowait` when creating keymaps
 }
 local vmappings = {
-  {"<leader>/",
-    '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>',
-    desc="Comment",
-  },
+  { "<leader>/", '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>', desc="Comment", },
   { "<leader>s", "<esc><cmd>'<,'>SnipRun<cr>", desc="Run range" },
-
-  {
-    "<leader>r",
-    { "r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], desc="Replace Word" },
-    { "o", [[:%s/\<<C-r><C-w>//gc<Left><Left><Left>]], desc="Replace Optional" },
-    { "y", [[:%s/\<<C-r><C-w>/<C-r>0/g<CR>]], desc="Replace Clipboard" },
-  },
+  { "<leader>rr", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], desc="Replace Word" },
+  { "<leader>ro", [[:%s/\<<C-r><C-w>//gc<Left><Left><Left>]], desc="Replace Optional" },
+  { "<leader>ry", [[:%s/\<<C-r><C-w>/<C-r>0/g<CR>]], desc="Replace Clipboard" },
 }
 
 
