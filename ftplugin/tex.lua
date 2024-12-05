@@ -13,10 +13,7 @@ local opts = {
 }
 
 local mappings = {
-  G = {
-    name = "Latext",
-    p = {"<cmd>!pdflatex %<CR>", "Compile"},
-  },
+  {"<leader>Lp","<cmd>!pdflatex %<CR>", desc="Compile"},
 }
 
-which_key.register(mappings, opts)
+which_key.add(mappings, opts)

@@ -13,15 +13,12 @@ local opts = {
 }
 
 local mappings = {
-  G = {
-    name = "Colors",
-    p = { "<cmd>Colortils picker<CR>", "Picker" },
-    a = { "<cmd>Colortils css list<CR>", "List" },
-    d = { "<cmd>Colortils darken<CR>", "Dark" },
-    w = { "<cmd>Colortils lighten<CR>", "Light" },
-    g = { "<cmd>Colortils greyscale<CR>", "Greyscale" },
-    c = { "<cmd>Colortils gradient<CR>", "Gradient" },
-  },
+    {"<leader>Lp", "<cmd>Colortils picker<CR>", desc="Picker" },
+    {"<leader>La", "<cmd>Colortils css list<CR>", desc="List" },
+    {"<leader>Ld", "<cmd>Colortils darken<CR>", desc="Dark" },
+    {"<leader>Lw", "<cmd>Colortils lighten<CR>", desc="Light" },
+    {"<leader>Lg", "<cmd>Colortils greyscale<CR>", desc="Greyscale" },
+    {"<leader>Lc", "<cmd>Colortils gradient<CR>", desc="Gradient" },
 }
 
-which_key.register(mappings, opts)
+which_key.add(mappings, opts)

@@ -28,7 +28,7 @@ configs.setup {
     enable = true,
   },
   indent = { enable = true, disable = { }},--"python", "css", "rust", "html" 
-  context_commentstring = {
+  ts_context_commentstring = {
     enable = true
     --enable_autocmd = false,
   },

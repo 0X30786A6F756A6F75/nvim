@@ -112,7 +112,7 @@ return packer.startup(function(use)
   -- use { "lukas-reineke/indent-blankline.nvim", config = get_setup "indentline" }
 
   -- Keybinds
-  use { "folke/which-key.nvim", config = get_setup "whichkey" }
+  use { "folke/which-key.nvim", config = get_setup "whichkey", event = "VeryLazy" }
 
   -- Colorschemes
   use { "folke/tokyonight.nvim" }
@@ -146,13 +146,13 @@ return packer.startup(function(use)
     config = get_setup "tabnine",
   } ]]
 
-  -- use {
-  --   "zbirenbaum/copilot.lua",
-  --   cmd = "Copilot",
-  --   event = "VimEnter",
-  --   requires = { "zbirenbaum/copilot-cmp" },
-  --   config = get_setup "copilot",
-  -- }
+  --[[ use {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "VimEnter",
+    requires = { "zbirenbaum/copilot-cmp" },
+    config = get_setup "copilot",
+  } ]]
   -- Colorizer
   use {"nvim-colortils/colortils.nvim", require= "NvChad/nvim-colorizer.lua", config = get_setup "colortils", ft="css"}
   use {"NvChad/nvim-colorizer.lua", ft="css"}
@@ -254,6 +254,9 @@ return packer.startup(function(use)
 
   -- Latex
   use { "kdheepak/cmp-latex-symbols" }
+
+  -- mini
+  use { "echasnovski/mini.nvim", version = false, }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

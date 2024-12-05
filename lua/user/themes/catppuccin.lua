@@ -84,7 +84,7 @@ catppuccin.setup({
     notify = true,
     telekasten = false,
     symbols_outline = true,
-    mini = true,
+    -- mini = true,
     fidget = false,
   },
 })

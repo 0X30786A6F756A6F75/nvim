@@ -18,21 +18,18 @@ local opts = {
 }
 
 local mappings = {
-  G = {
-    name = "Go",
-    i = { "<cmd>GoInstallDeps<CR>", "Install Go Dependencies" },
-    f = { "<cmd>GoMod tidy<CR>", "Tidy" },
-    a = { "<cmd>GoTestAdd<CR>", "Add Test" },
-    A = { "<cmd>GoTestsAll<CR>", "Add All Tests" },
-    c = { "<cmd>GoCmt<CR>", "Generate Comment" },
-    j = { "<cmd>GoAddTag json<CR>", "Add json struct tags" },
-    y = { "<cmd>GoAddTag yaml<CR>", "Add yaml struct tags" },
-    -- t = { "<cmd>lua require('dap-go').debug_test()<cr>", "Debug Test" },
-    C = {'<cmd>GoCoverage<CR>', "Coverage "},
-    e = {'<cmd>GoIfErr<CR>', "Check error"},
-    k = {'<cmd>GoDoc<CR>', "Documentation"},
-    t = {'<cmd>GoTestFile .<CR>', "GoTestFile"},
-  },
+    {"<leader>Li", "<cmd>GoInstallDeps<CR>", desc="Install Go Dependencies" },
+    {"<leader>Lf", "<cmd>GoMod tidy<CR>", desc="Tidy" },
+    {"<leader>La", "<cmd>GoTestAdd<CR>", desc="Add Test" },
+    {"<leader>LA", "<cmd>GoTestsAll<CR>", desc="Add All Tests" },
+    {"<leader>Lc", "<cmd>GoCmt<CR>", desc="Generate Comment" },
+    {"<leader>Lj", "<cmd>GoAddTag json<CR>", desc="Add json struct tags" },
+    {"<leader>Ly", "<cmd>GoAddTag yaml<CR>", desc="Add yaml struct tags" },
+    {"<leader>Lt", "<cmd>lua require('dap-go').debug_test()<cr>", desc="Debug Test" },
+    {"<leader>LC",'<cmd>GoCoverage<CR>', desc="Coverage "},
+    {"<leader>Le",'<cmd>GoIfErr<CR>', desc="Check error"},
+    {"<leader>Lk",'<cmd>GoDoc<CR>', desc="Documentation"},
+    {"<leader>Lt",'<cmd>GoTestFile .<CR>', desc="GoTestFile"},
 }
 
-which_key.register(mappings, opts)
+which_key.add(mappings, opts)

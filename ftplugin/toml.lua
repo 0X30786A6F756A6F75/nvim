@@ -14,39 +14,42 @@ vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
       nowait = true, -- use `nowait` when creating keymaps
     }
 
+    local vopts = {
+      mode = "v", -- VISUAL mode
+      prefix = "<leader>",
+      buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
+      silent = true, -- use `silent` when creating keymaps
+      noremap = true, -- use `noremap` when creating keymaps
+      nowait = true, -- use `nowait` when creating keymaps
+    }
+
     -- require('crates').focus_popup()
     -- require('crates').hide_popup()
 
     local mappings = {
-      L = {
-        name = "Cargo",
-
-        -- u = { "<cmd>require('crates').update()<CR>", "Toggle Hints" },
-        -- r = { "<cmd>require('crates').reload()<CR>", "Toggle Hints" },
-
-        -- Visual
-        -- U = { "<cmd>require('crates').update_crates()<CR>", "" },
-        -- G = { "<cmd>require('crates').upgrade_crates()<CR>", "" },
-
-        t = { "<cmd>lua require('crates').toggle()<CR>", "Toggle Hints" },
-
-        u = { "<cmd>lua require('crates').update_crate()<CR>", "Update" },
-        U = { "<cmd>lua require('crates').upgrade_crate()<CR>", "Upgrade" },
-
-        a = { "<cmd>lua require('crates').update_all_crates()<CR>", "Update All" },
-        A = { "<cmd>lua require('crates').upgrade_all_crates()<CR>", "Upgrade All" },
-
-        h = { "<cmd>lua require('crates').open_homepage()<CR>", "Open Home" },
-        r = { "<cmd>lua require('crates').open_repository()<CR>", "Open Repo" },
-        d = { "<cmd>lua require('crates').open_documentation()<CR>", "Open Doc" },
-        c = { "<cmd>lua require('crates').open_crates_io()<CR>", "Open Crates.io" },
-        i = { "<cmd>lua require('crates').show_popup()<CR>", "Info" },
-        v = { "<cmd>lua require('crates').show_versions_popup()<CR>", "Versions" },
-        f = { "<cmd>lua require('crates').show_features_popup()<CR>", "Features" },
-        D = { "<cmd>lua require('crates').show_dependencies_popup()<CR>", "Dependencies" },
-      },
+        {"<leader>Lu", "<cmd>require('crates').update()<CR>", desc="Toggle Hints" },
+        {"<leader>Lr", "<cmd>require('crates').reload()<CR>", desc="Toggle Hints" },
+        {"<leader>LU", "<cmd>require('crates').update_crates()<CR>", desc="" },
+        {"<leader>LG", "<cmd>require('crates').upgrade_crates()<CR>", desc="" },
     }
 
-    which_key.register(mappings, opts)
+    local vmappings = {
+        {"<leader>Lt", "<cmd>lua require('crates').toggle()<CR>", desc="Toggle Hints" },
+        {"<leader>Lu", "<cmd>lua require('crates').update_crate()<CR>", desc="Update" },
+        {"<leader>LU", "<cmd>lua require('crates').upgrade_crate()<CR>", desc="Upgrade" },
+        {"<leader>La", "<cmd>lua require('crates').update_all_crates()<CR>", desc="Update All" },
+        {"<leader>LA", "<cmd>lua require('crates').upgrade_all_crates()<CR>", desc="Upgrade All" },
+        {"<leader>Lh", "<cmd>lua require('crates').open_homepage()<CR>", desc="Open Home" },
+        {"<leader>Lr", "<cmd>lua require('crates').open_repository()<CR>", desc="Open Repo" },
+        {"<leader>Ld", "<cmd>lua require('crates').open_documentation()<CR>", desc="Open Doc" },
+        {"<leader>Lc", "<cmd>lua require('crates').open_crates_io()<CR>", desc="Open Crates.io" },
+        {"<leader>Li", "<cmd>lua require('crates').show_popup()<CR>", desc="Info" },
+        {"<leader>Lv", "<cmd>lua require('crates').show_versions_popup()<CR>", desc="Versions" },
+        {"<leader>Lf", "<cmd>lua require('crates').show_features_popup()<CR>", desc="Features" },
+        {"<leader>LD", "<cmd>lua require('crates').show_dependencies_popup()<CR>", desc="Dependencies" },
+    }
+
+    which_key.add(mappings, opts)
+    which_key.add(vmappings, vopts)
   end,
 })
