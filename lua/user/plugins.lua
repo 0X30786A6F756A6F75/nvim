@@ -112,7 +112,7 @@ return packer.startup(function(use)
   -- use { "lukas-reineke/indent-blankline.nvim", config = get_setup "indentline" }
 
   -- Keybinds
-  use { "folke/which-key.nvim", config = get_setup "whichkey", event = "VeryLazy" }
+  use { "folke/which-key.nvim", config = get_setup "whichkey"}
 
   -- Colorschemes
   use { "folke/tokyonight.nvim" }
