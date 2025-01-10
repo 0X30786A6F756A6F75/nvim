@@ -30,6 +30,7 @@ local mappings = {
     {"<leader>Le",'<cmd>GoIfErr<CR>', desc="Check error"},
     {"<leader>Lk",'<cmd>GoDoc<CR>', desc="Documentation"},
     {"<leader>Lt",'<cmd>GoTestFile .<CR>', desc="GoTestFile"},
+    desc="code"
 }
 
 which_key.add(mappings, opts)

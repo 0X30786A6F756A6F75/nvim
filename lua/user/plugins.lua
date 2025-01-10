@@ -75,6 +75,13 @@ return packer.startup(function(use)
     config = get_setup "nvim-tree",
   }
 
+  use {
+    "nvim-treesitter/nvim-tree-docs",
+    config = require"nvim-treesitter.configs".setup {
+      tree_docs = {enable = true}
+    }
+  }
+
   -- Tabline
   use { "akinsho/bufferline.nvim", config = get_setup "bufferline" }
   -- use { "fgheng/winbar.nvim", config = get_setup "winbar" }
@@ -112,7 +119,7 @@ return packer.startup(function(use)
   -- use { "lukas-reineke/indent-blankline.nvim", config = get_setup "indentline" }
 
   -- Keybinds
-  use { "folke/which-key.nvim", config = get_setup "whichkey"}
+  use { "folke/which-key.nvim", config = get_setup "whichkey", event = "BufReadPre" }
 
   -- Colorschemes
   use { "folke/tokyonight.nvim" }
@@ -139,12 +146,11 @@ return packer.startup(function(use)
   use { "saadparwaiz1/cmp_luasnip" }
   use { "hrsh7th/cmp-emoji" }
   use { "hrsh7th/cmp-cmdline" }
-
-  --[[ use {
+  use {
     "tzachar/cmp-tabnine",
     run = "./install.sh",
     config = get_setup "tabnine",
-  } ]]
+  }
 
   --[[ use {
     "zbirenbaum/copilot.lua",

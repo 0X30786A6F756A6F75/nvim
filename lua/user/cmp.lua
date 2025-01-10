@@ -82,7 +82,7 @@ cmp.setup {
       elseif luasnip.expandable() then
       elseif check_backspace() then
         luasnip.expand()
-        -- cmp.complete()
+        cmp.complete()
         fallback()
       else
         fallback()
